@@ -1,0 +1,105 @@
+/**
+ * Solarized Light theme for reveal.js.
+ * Author: Achim Staebler
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/league-gothic/league-gothic.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+/**
+ * Solarized colors by Ethan Schoonover
+ */
+html * {
+	color-profile: sRGB;
+	rendering-intent: auto;
+}
+
+// Solarized colors
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #22245E;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #FF9191;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+$gray:      #E5E5E5;
+// Override theme settings (see ../template/settings.scss)
+$mainColor: $base00;
+$headingColor: $base01;
+$headingTextShadow: none;
+$backgroundColor: $base3;
+$linkColor: $blue;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: $magenta;
+
+//Background generator
+// @mixin bodyBackground() {
+// 	@include radial-gradient( rgba($base3,1), rgba(lighten($base3, 20%),1) );
+// }
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal {
+    h1,
+    h2,
+    h3 {
+        color: $base00;
+        text-decoration: underline;
+    }
+    li {
+        list-style: circle;
+    }
+    pre {
+        box-shadow: none;
+    }
+    code {
+        font-size: 16px;
+    }
+    .smaller {
+        font-size: 22px;
+    }
+    .controls {
+        .navigate-top,
+        .navigate-top.enabled {
+            border-bottom-color: $gray;
+        }
+        .navigate-down,
+        .navigate-down.enabled {
+            border-top-color: $gray;
+        }
+        .navigate-left,
+        .navigate-left.enabled {
+            border-right-color: $gray;
+        }
+        .navigate-right,
+        .navigate-right.enabled {
+            border-left-color: $gray;
+        }
+    }
+    .progress span {
+        background-color: $gray;
+    }
+}

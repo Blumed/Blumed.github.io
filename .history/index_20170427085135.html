@@ -1,0 +1,600 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Build Your Own Tools!</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/cullan.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Build Your<br>Own Tools!</h1>
+				</section>
+				<section>
+					<h2>Why build your<br>own tools?</h2>
+					<ul>
+						<li class="fragment visible current-fragment">Automation Is Speed</li>
+						<li class="fragment visible current-fragment">Learn Something New</li>
+						<li class="fragment visible current-fragment">Problem Solving</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Bash</h3>
+					<ul>
+						<li class="fragment visible current-fragment">First Generation HIVE Launcher</li>
+						<li class="fragment visible current-fragment">Batch Image Processesor</li>
+						<li class="fragment visible current-fragment">Filelist</li>
+						<li class="fragment visible current-fragment">Bass64</li>
+					</ul>
+					<h3>JavaScript</h3>
+					<ul>
+						<li class="fragment visible current-fragment">Second Generation HIVE Launcher (Node)</li>
+						<li class="fragment visible current-fragment">Device Info Bookmarklet</li>
+						<li class="fragment visible current-fragment">BrowserStack Device Info Chrome Extension</li>
+						<li class="fragment visible current-fragment">Looksee Chrome Extension</li>
+					</ul>
+				</section>
+				<section data-background="/lib/images/hulk.png"></section>
+				<section>
+					<h2>Bass64</h2>
+					<pre>
+						<code data-trim class="bash">
+							#bass64 file.jpg -img
+							bass64(){
+							filename=$(basename $1)
+							ext=${filename##*.}
+							if [ $ext == gif ]; then
+								append="data:image/gif;base64,";
+							elif [ $ext == jpeg ] || [ $ext == jpg ]; then
+								append="data:image/jpeg;base64,";
+							elif [ $ext == png ]; then
+								append="data:image/png;base64,";
+							elif [ $ext == svg ]; then
+								append="data:image/svg+xml;base64,";
+							elif [ $ext == ico ]; then
+								append="data:image/vnd.microsoft.icon;base64,";
+							fi
+
+							#Mathias Bynens - http://superuser.com/questions/120796/os-x-base64-encode-via-command-line
+							data=$(openssl base64 < $1 | tr -d '\n')
+
+							if [ "$#" -eq 2 ] && [ $2 == -img ]; then
+								data=\<img\ src\=\"$append$data\"\ alt\=\"image\"\>
+							else
+								data=$append$data
+							fi
+
+							echo $data | pbcopy
+
+							echo "copied to clipboard"
+							}
+						</code>
+					</pre>
+				</section>
+				<section data-transition="fade-in fade-out">
+					<h2>Demo</h2>
+					<img src="/lib/images/demo1.gif" alt="">
+				</section>
+				<section>
+					<h2>First Generation HIVE Launcher</h2>
+					<pre>
+						<code data-trim class="bash">
+							#!/bin/bash
+
+							#Sweet Colors
+							red=`tput setaf 1`
+							green=`tput setaf 2`
+							magenta=`tput setaf 5`
+							reset=`tput sgr0`
+							bold=`tput bold`
+
+							#init Function
+							HIVE(){
+								printf "${magenta}${bold}Welcome to HIVE!${reset}\n${green}${bold}(1)${reset} Update bitbucket credentials\n${green}${bold}(2)${reset} Continue to next step \n"
+								read answer
+								if [[ ! $answer =~ ^[2]$ ]]
+								then
+								rm ~/.bitbucket;
+								printf "${magenta}${bold}What is your bitbucket username?${reset}\n";
+								read username;
+								printf "${magenta}${bold}What is your bitbucket password?${reset}\n";
+								read password;
+								touch ~/.bitbucket;
+								echo "bitbucketusername=\"$username\"; bitbucketpassword=\"$password\";" >> ~/.bitbucket;
+								echo "${green}${bold}Because bitbucket credentials are global variables you'll need to create a new bash instance by pressing ${reset}${red}(Command + t or Command n)${reset}${green}${bold} and rerun HIVE"
+								return
+								fi
+								printf "${magenta}${bold}Where would you like your Hive project location to be?${reset}\n${red}You are currently here -> ${reset}"
+								echo "$PWD/" && read location;
+								#read location;
+								if [ ! -d "$location" ]
+								then
+									echo "File path $location does not exists"
+									return
+								fi
+								printf "${magenta}${bold}What is the name of your project?\n${reset}"
+								read project;
+								printf "${magenta}${bold}Is all this information correct? (${green}${bold}Y${reset})(${red}${bold}N${reset})\n"
+								read answer;
+								echo    #space
+								if [[ ! $answer =~ ^[Yy]$ ]]
+								then
+									return;
+								fi
+								echo "${green}${bold}Starting Hive"${reset};
+								cd $location;
+								curl --user $bitbucketusername:$bitbucketpassword https://bitbucket.org/horizontal/hive/get/master.zip -o master.zip && unzip master.zip
+								mv -f horizontal-hive* $project
+								cd $project && npm install && gulp
+							}
+
+							#cleaning function
+							unHIVE(){
+								sed -i.bak '/hive/d' ~/.bash_profile;
+								rm ~/.bitbucket;
+								rm ~/hive-launcher.sh;
+							}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Image Processore</h2>
+					<pre>
+						<code data-trim class="bash">
+							#!/bin/bash
+
+							cd src/assets/images/social/uncompressed  #change directory to exicute script in uncompressed folder
+							mkdir .tmp     #making temp derectory
+
+							cp * .tmp/
+							mogrify -format jpg -filter Triangle -define filter:support=2 -thumbnail 1200x630! -quality 100 -unsharp 0.25x0.08+8.3+0.045 -dither None -define jpeg:fancy-upsampling=off -interlace none -colorspace sRGB -path .tmp/ .tmp/*.*
+							mv .tmp/*.jpg .tmp/../../og/; rm -R .tmp/*;
+
+							cp * .tmp/
+							mogrify -format jpg -filter Triangle -define filter:support=2 -thumbnail 1024x512! -quality 100 -unsharp 0.25x0.08+8.3+0.045 -dither None -define jpeg:fancy-upsampling=off -interlace none -colorspace sRGB -path .tmp/ .tmp/*.*
+							mv .tmp/*.jpg .tmp/../../twitter/; rm -R .tmp/*;
+
+							rm -R .tmp #removes temp directory
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Filelist</h2>
+					<pre>
+						<code data-trim class="bash">
+							filelist() {
+
+							if [ $# -gt 0 ]; then
+								shopt -s nullglob
+								for ext in "$@"; do
+								printf '%s\n' *.$ext
+								done | pbcopy
+								echo "copied listing for $@ files to clipboard"
+							else
+							shopt -s nullglob
+							for ext in *.*; do
+								echo "$ext"
+							done | pbcopy
+								echo "copied listing for all files to clipboard"
+							fi
+
+							}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Demo</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/eZqLQf33yCE" frameborder="0" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h2>Second Generation HIVE Launcher (node)</h2>
+					<pre>
+						<code data-trim class="javascript">
+							#!/usr/bin/env node --harmony
+
+							'use strict';
+							var Promise = require('promise');
+							var fs = require('fs');
+							var fse = require('fs-extra');
+							var figlet = require('figlet');
+							var chalk = require('chalk');
+							var supportsColor = require('supports-color');
+							var inquirer = require('inquirer');
+							var shell = require("shelljs");
+
+							var username,
+								project;
+
+							//Ascii Logo
+							console.log(
+								chalk.yellow(
+
+									figlet.textSync('HIVE', {
+
+										horizontalLayout: 'full',
+										font: 'Big Money-sw',
+
+									})
+								)
+							);
+
+							//Callbacks
+							hiveLauncherInit(function(data) {
+
+								cloneBitbucketRepo(data);
+
+								setTimeout(function() {
+
+									installDependenciesThenLaunch(data);
+
+								}, 3000);
+
+							});
+
+							//Init Function
+							function hiveLauncherInit(callback) {
+								var questions = [{
+									type: "input",
+									message: 'What is your Bitbucket username? ',
+									name: "username"
+								}, {
+									type: "input",
+									message: 'What is the name of your project?',
+									name: "project"
+								}, {
+									type: 'confirm',
+									name: 'doublecheck',
+									message: 'Is this correct? (just hit enter for YES)',
+									default: true
+								}];
+
+								//Allow cofirmation to reset installation
+								function makeSure() {
+									inquirer.prompt(questions).then(function(data) {
+
+										if (data.doublecheck) {
+
+											return callback(data);
+
+										} else {
+
+											makeSure();
+
+										}
+
+									});
+								} makeSure();
+							}
+
+							//Clone Repo Function
+							function cloneBitbucketRepo(data) {
+
+								console.log(chalk.cyan.bold('Downloading repo 👍'));
+
+								shell.exec("git clone https://" + data.username + "@bitbucket.org/horizontal/hive.git " + data.project);
+							}
+
+							//Installation and Launch Function
+							function installDependenciesThenLaunch(data) {
+
+								var newProject = data.project;
+								fse.removeSync(newProject + "/.git");
+
+								console.log(chalk.cyan.bold('Starting npm install 👍'));
+
+								shell.exec('cd ' + newProject + '&& ' + 'npm install --color always');
+
+								console.log(chalk.cyan.bold('Starting gulp 👍'));
+
+								shell.exec('cd ' + newProject + '&& ' + 'gulp --color');
+							}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Demo</h2>
+					<img src="/lib/images/demo2.gif" alt="">
+				</section>
+				<section>
+					<h2>Device Info Bookmarklet</h2>
+					<pre>
+						<code data-trim class="javascript">
+							javascript:(function() {
+								function checkthisthingout() {
+									var showmewhoiamnow = document.createElement('div'),
+										showmetimenow = document.createElement('div');
+
+									showmewhoiamnow.setAttribute('id', 'showmewhoiamnow');
+									showmetimenow.setAttribute('id', 'showmetimenow');
+									showmewhoiamnow.style.color = 'black';
+									showmewhoiamnow.style.position = 'fixed';
+									showmewhoiamnow.style.textAlign = 'center';
+									showmewhoiamnow.style.zIndex = '1000000';
+									showmewhoiamnow.style.left = '0';
+									showmewhoiamnow.style.right = '0';
+									showmewhoiamnow.style.backgroundColor = '#eee';
+									showmewhoiamnow.style.padding = '1rem';
+									showmewhoiamnow.style.fontSize = '18px';
+									showmewhoiamnow.style.fontFamily = 'Helvetica';
+									showmewhoiamnow.style.fontWeight = '100';
+
+									{
+										var unknown = '-';
+
+
+										var screenSize = '';
+										if (screen.width) {
+											width = (screen.width) ? screen.width : '';
+											height = (screen.height) ? screen.height : '';
+											screenSize += '' + width + ' x ' + height;
+										}
+
+
+										var nVer = navigator.appVersion;
+										var nAgt = navigator.userAgent;
+										var browser = navigator.appName;
+										var version = '' + parseFloat(navigator.appVersion);
+										var majorVersion = parseInt(navigator.appVersion, 10);
+										var nameOffset, verOffset, ix;
+
+
+										if ((verOffset = nAgt.indexOf('Opera')) != -1) {
+											browser = 'Opera';
+											version = nAgt.substring(verOffset + 6);
+											if ((verOffset = nAgt.indexOf('Version')) != -1) {
+												version = nAgt.substring(verOffset + 8);
+											}
+										}
+
+										if ((verOffset = nAgt.indexOf('OPR')) != -1) {
+											browser = 'Opera';
+											version = nAgt.substring(verOffset + 4);
+										} else if ((verOffset = nAgt.indexOf('MSIE')) != -1) {
+											browser = 'Internet Explorer';
+											version = nAgt.substring(verOffset + 5);
+										} else if (nAgt.indexOf('Trident/') != -1) {
+											browser = 'Internet Explorer';
+											version = nAgt.substring(nAgt.indexOf('rv:') + 3);
+										} else if (nAgt.indexOf('Edge/') != -1) {
+											browser = 'Internet Explorer Edge';
+											version = '';
+										} else if ((verOffset = nAgt.indexOf('Chrome')) != -1) {
+											browser = 'Chrome';
+											version = nAgt.substring(verOffset + 7);
+										} else if ((verOffset = nAgt.indexOf('Safari')) != -1) {
+											browser = 'Safari';
+											version = nAgt.substring(verOffset + 7);
+											if ((verOffset = nAgt.indexOf('Version')) != -1) {
+												version = nAgt.substring(verOffset + 8);
+											}
+										} else if ((verOffset = nAgt.indexOf('Firefox')) != -1) {
+											browser = 'Firefox';
+											version = nAgt.substring(verOffset + 8);
+										} else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) < (verOffset = nAgt.lastIndexOf('/'))) {
+											browser = nAgt.substring(nameOffset, verOffset);
+											version = nAgt.substring(verOffset + 1);
+											if (browser.toLowerCase() == browser.toUpperCase()) {
+												browser = navigator.appName;
+											}
+										}
+
+										if ((ix = version.indexOf(';')) != -1) version = version.substring(0, ix);
+										if ((ix = version.indexOf(' ')) != -1) version = version.substring(0, ix);
+										if ((ix = version.indexOf(')')) != -1) version = version.substring(0, ix);
+
+										majorVersion = parseInt('' + version, 10);
+										if (isNaN(majorVersion)) {
+											version = '' + parseFloat(navigator.appVersion);
+											majorVersion = parseInt(navigator.appVersion, 10);
+										}
+
+
+										var mobile = /Mobile|mini|Fennec|Android|iP(ad|od|hone)/.test(nVer);
+
+
+										var orientation = '';
+										if (screen.width < screen.height) {
+											orientation = 'portrait';
+										} else {
+											orientation = 'landscape';
+										}
+
+
+										var url = window.location.href;
+
+
+										var os = unknown;
+										var clientStrings = [
+											{ s: 'Windows 10', r: /(Windows 10.0|Windows NT 10.0)/ },
+											{ s: 'Windows 8.1', r: /(Windows 8.1|Windows NT 6.3)/ },
+											{ s: 'Windows 8', r: /(Windows 8|Windows NT 6.2)/ },
+											{ s: 'Windows 7', r: /(Windows 7|Windows NT 6.1)/ },
+											{ s: 'Windows Vista', r: /Windows NT 6.0/ },
+											{ s: 'Windows Server 2003', r: /Windows NT 5.2/ },
+											{ s: 'Windows XP', r: /(Windows NT 5.1|Windows XP)/ },
+											{ s: 'Windows 2000', r: /(Windows NT 5.0|Windows 2000)/ },
+											{ s: 'Windows ME', r: /(Win 9x 4.90|Windows ME)/ },
+											{ s: 'Windows 98', r: /(Windows 98|Win98)/ },
+											{ s: 'Windows 95', r: /(Windows 95|Win95|Windows_95)/ },
+											{ s: 'Windows NT 4.0', r: /(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/ },
+											{ s: 'Windows CE', r: /Windows CE/ },
+											{ s: 'Windows 3.11', r: /Win16/ },
+											{ s: 'Nexus', r: /Nexus/ },
+											{ s: 'Samsung', r: /SM-|GT-/ },
+											{ s: 'LG', r: /LG-/ },
+											{ s: 'HTC', r: /HTC/ },
+											{ s: 'Pixel', r: /Pixel/ },
+											{ s: 'Open BSD', r: /OpenBSD/ },
+											{ s: 'Sun OS', r: /SunOS/ },
+											{ s: 'Linux', r: /(Linux|X11)/ },
+											{ s: 'iPad', r: /(iPad)/ },
+											{ s: 'iPhone', r: /(iPhone|iPod)/ },
+											{ s: 'Mac OS X', r: /Mac OS X/ },
+											{ s: 'Mac OS', r: /(MacPPC|MacIntel|Mac_PowerPC|Macintosh)/ },
+											{ s: 'QNX', r: /QNX/ },
+											{ s: 'UNIX', r: /UNIX/ },
+											{ s: 'BeOS', r: /BeOS/ },
+											{ s: 'OS/2', r: /OS\/2/ },
+											{ s: 'Search Bot', r: /(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/ }
+										];
+										for (var id in clientStrings) {
+											var cs = clientStrings[id];
+											if (cs.r.test(nAgt)) {
+												os = cs.s;
+												break;
+											}
+										}
+										
+										var osVersion = unknown;
+
+										if (/Windows/.test(os)) {
+											osVersion = /Windows (.*)/.exec(os)[1];
+											os = 'Windows';
+										}
+
+										switch (os) {
+											case 'Mac OS X':
+												osVersion = /Mac OS X (10[\.\_\d]+)/.exec(nAgt)[1];
+												break;
+
+											case 'Android':
+											case 'Nexus':
+											case 'Samsung':
+											case 'HTC':
+											case 'LG':
+											case 'Pixel':  
+												osVersion = /Android ([\.\_\d]+)/.exec(nAgt)[1];
+												break;
+
+											case 'OS':
+											case 'iPhone':
+											case 'iPad':
+												osVersion = /OS (\d+)_(\d+)_?(\d+)?/.exec(nVer);
+												osVersion = osVersion[1] + '.' + osVersion[2] + '.' + (osVersion[3] | 0);
+											break;
+										}
+									}
+								
+									if (browser === 'Internet Explorer Edge') {
+										majorVersion = '';
+									}
+
+									window.jscd = {
+										screen: screenSize,
+										browser: browser,
+										browserVersion: version,
+										browserMajorVersion: majorVersion,
+										url: url,
+										mobile: mobile,
+										orientation: orientation,
+										os: os,
+										osVersion: osVersion,
+									};
+
+									var date = new Date(),
+										month = date.getMonth() + 1,
+										day = date.getDate(),
+										hour = date.getHours(),
+										min = date.getMinutes(),
+										sec = date.getSeconds(),
+										meanTime;
+									month = (month < 10 ? '0' : '') + month, day = (day < 10 ? '0' : '') + day, meanTime = hour >= 12 ? ' P.M.' : ' A.M.', hour = hour > 12 ? hour - 12 : hour, min = (min < 10 ? '0' : '') + min, sec = (sec < 10 ? '0' : '') + sec;
+									var timeStamp = 'Date: ' + month + '-' + day + '-' + date.getFullYear() + ' ' + 'Time: ' + hour + ':' + min + ':' + sec + meanTime;
+
+
+
+									showmetimenow.innerHTML = timeStamp;
+									showmewhoiamnow.innerHTML = 
+									'OS: ' + jscd.os + ' ' + jscd.osVersion + '\n' + '<br>' +
+										'Browser: ' + jscd.browser + ' ' + jscd.browserMajorVersion + '<br>' +
+										' ' + 'Mobile: ' + jscd.mobile + '<br>' +
+										'Screen Size: ' + jscd.screen + '<br>' +
+										'Orientation: ' + jscd.orientation + '<br>' +
+										'Url: ' + jscd.url + '<br>' +
+										timeStamp;
+									document.body.insertBefore(showmewhoiamnow, document.body.firstChild);
+
+								}
+
+								function removeDiv() {
+									var showmewhoiamnow = document.getElementById('showmewhoiamnow');
+									showmewhoiamnow.style.display = 'none';
+								}
+								checkthisthingout(), setTimeout(removeDiv, 10000);
+							}());
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Demo</h2>
+					<img src="/lib/images/demo3.gif" alt="">
+				</section>
+				<section>
+					<h2>Chrome Extension</h2>
+					<img src="/lib/images/chrome.png" alt="">
+				</section>
+				<section>
+					<h2>BrowserStack Device Info Chrome Extension</h2>
+					<img src="/lib/images/deviceinfo.png" alt="">
+				</section>
+				<section>
+					<h2>Demo</h2>
+					<img src="/lib/images/demo4.gif" alt="">
+				</section>
+				<section>
+					<h2>Thanks for staying awake thus far!</h2>
+					<img src="/lib/images/clapping.gif" alt="">
+				</section>
+				<section>
+					<h2>Looksee Chrome Extension</h2>
+					<img src="/lib/images/looksee.png" alt="">
+					<section>
+						<h2>Vertical</h2>
+					</section>
+				</section>
+				<section>
+					<h2>Final Demo</h2>
+					<img src="/lib/images/demo5.gif" alt="">
+				</section>
+				<section>
+					<h2>Fin</h2>
+					<img src="/lib/images/thanks.gif" alt="">
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

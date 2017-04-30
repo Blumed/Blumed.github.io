@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Build Your Own Tools!</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/cullan.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Build Your<br>Own Tools!</h1>
+				</section>
+				<section>
+					<h2>Why build your<br>own tools?</h2>
+					<ul>
+						<li class="fragment visible current-fragment">Automation Is Speed</li>
+						<li class="fragment visible current-fragment">Learn Something New</li>
+						<li class="fragment visible current-fragment">Problem Solving</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Bash</h3>
+					<ul>
+						<li class="fragment visible current-fragment">First Generation HIVE Launcher</li>
+						<li class="fragment visible current-fragment">Batch Image Processesor</li>
+						<li class="fragment visible current-fragment">Filelist</li>
+						<li class="fragment visible current-fragment">Bass64</li>
+					</ul>
+					<h3>JavaScript</h3>
+					<ul>
+						<li class="fragment visible current-fragment">Second Generation HIVE Launcher (Node)</li>
+						<li class="fragment visible current-fragment">Device Info Bookmarklet</li>
+						<li class="fragment visible current-fragment">BrowserStack Device Info Chrome Extension</li>
+						<li class="fragment visible current-fragment">Looksee Chrome Extension</li>
+					</ul>
+				</section>
+				<section data-background="/lib/images/hulk.png"></section>
+				<section>
+					<h2>Bass64</h2>
+					<pre>
+						<code data-trim class="bash">
+							#bass64 file.jpg -img
+							bass64(){
+							filename=$(basename $1)
+							ext=${filename##*.}
+							if [ $ext == gif ]; then
+								append="data:image/gif;base64,";
+							elif [ $ext == jpeg ] || [ $ext == jpg ]; then
+								append="data:image/jpeg;base64,";
+							elif [ $ext == png ]; then
+								append="data:image/png;base64,";
+							elif [ $ext == svg ]; then
+								append="data:image/svg+xml;base64,";
+							elif [ $ext == ico ]; then
+								append="data:image/vnd.microsoft.icon;base64,";
+							fi
+
+							#Mathias Bynens - http://superuser.com/questions/120796/os-x-base64-encode-via-command-line
+							data=$(openssl base64 < $1 | tr -d '\n')
+
+							if [ "$#" -eq 2 ] && [ $2 == -img ]; then
+								data=\<img\ src\=\"$append$data\"\ alt\=\"image\"\>
+							else
+								data=$append$data
+							fi
+
+							echo $data | pbcopy
+
+							echo "copied to clipboard"
+							}
+						</code>
+					</pre>
+				</section>
+				<section data-transition="fade-in fade-out">
+					<h2>Demo</h2>
+					<img src="/lib/images/demo1.gif" alt="">
+				</section>
+				<section>
+					<h2>First Generation HIVE Launcher</h2>
+					<pre>
+						<code data-trim class="bash">
+							#!/bin/bash
+
+							#Sweet Colors
+							red=`tput setaf 1`
+							green=`tput setaf 2`
+							magenta=`tput setaf 5`
+							reset=`tput sgr0`
+							bold=`tput bold`
+
+							#init Function
+							HIVE(){
+								printf "${magenta}${bold}Welcome to HIVE!${reset}\n${green}${bold}(1)${reset} Update bitbucket credentials\n${green}${bold}(2)${reset} Continue to next step \n"
+								read answer
+								if [[ ! $answer =~ ^[2]$ ]]
+								then
+								rm ~/.bitbucket;
+								printf "${magenta}${bold}What is your bitbucket username?${reset}\n";
+								read username;
+								printf "${magenta}${bold}What is your bitbucket password?${reset}\n";
+								read password;
+								touch ~/.bitbucket;
+								echo "bitbucketusername=\"$username\"; bitbucketpassword=\"$password\";" >> ~/.bitbucket;
+								echo "${green}${bold}Because bitbucket credentials are global variables you'll need to create a new bash instance by pressing ${reset}${red}(Command + t or Command n)${reset}${green}${bold} and rerun HIVE"
+								return
+								fi
+								printf "${magenta}${bold}Where would you like your Hive project location to be?${reset}\n${red}You are currently here -> ${reset}"
+								echo "$PWD/" && read location;
+								#read location;
+								if [ ! -d "$location" ]
+								then
+									echo "File path $location does not exists"
+									return
+								fi
+								printf "${magenta}${bold}What is the name of your project?\n${reset}"
+								read project;
+								printf "${magenta}${bold}Is all this information correct? (${green}${bold}Y${reset})(${red}${bold}N${reset})\n"
+								read answer;
+								echo    #space
+								if [[ ! $answer =~ ^[Yy]$ ]]
+								then
+									return;
+								fi
+								echo "${green}${bold}Starting Hive"${reset};
+								cd $location;
+								curl --user $bitbucketusername:$bitbucketpassword https://bitbucket.org/horizontal/hive/get/master.zip -o master.zip && unzip master.zip
+								mv -f horizontal-hive* $project
+								cd $project && npm install && gulp
+							}
+
+							#cleaning function
+							unHIVE(){
+								sed -i.bak '/hive/d' ~/.bash_profile;
+								rm ~/.bitbucket;
+								rm ~/hive-launcher.sh;
+							}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Image Processore</h2>
+					<pre>
+						<code data-trim class="bash">
+							#!/bin/bash
+
+							cd src/assets/images/social/uncompressed  #change directory to exicute script in uncompressed folder
+							mkdir .tmp     #making temp derectory
+
+							cp * .tmp/
+							mogrify -format jpg -filter Triangle -define filter:support=2 -thumbnail 1200x630! -quality 100 -unsharp 0.25x0.08+8.3+0.045 -dither None -define jpeg:fancy-upsampling=off -interlace none -colorspace sRGB -path .tmp/ .tmp/*.*
+							mv .tmp/*.jpg .tmp/../../og/; rm -R .tmp/*;
+
+							cp * .tmp/
+							mogrify -format jpg -filter Triangle -define filter:support=2 -thumbnail 1024x512! -quality 100 -unsharp 0.25x0.08+8.3+0.045 -dither None -define jpeg:fancy-upsampling=off -interlace none -colorspace sRGB -path .tmp/ .tmp/*.*
+							mv .tmp/*.jpg .tmp/../../twitter/; rm -R .tmp/*;
+
+							rm -R .tmp #removes temp directory
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Filelist</h2>
+					<pre>
+						<code data-trim class="bash">
+							filelist() {
+
+							if [ $# -gt 0 ]; then
+								shopt -s nullglob
+								for ext in "$@"; do
+								printf '%s\n' *.$ext
+								done | pbcopy
+								echo "copied listing for $@ files to clipboard"
+							else
+							shopt -s nullglob
+							for ext in *.*; do
+								echo "$ext"
+							done | pbcopy
+								echo "copied listing for all files to clipboard"
+							fi
+
+							}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Demo</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/eZqLQf33yCE" frameborder="0" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h2>Second Generation HIVE Launcher (node)</h2>
+					<pre>
+						<code data-trim class="javascript">
+							#!/usr/bin/env node --harmony
+
+							'use strict';
+							var Promise = require('promise');
+							var fs = require('fs');
+							var fse = require('fs-extra');
+							var figlet = require('figlet');
+							var chalk = require('chalk');
+							var supportsColor = require('supports-color');
+							var inquirer = require('inquirer');
+							var shell = require("shelljs");
+
+							var username,
+								project;
+
+							//Ascii Logo
+							console.log(
+								chalk.yellow(
+
+									figlet.textSync('HIVE', {
+
+										horizontalLayout: 'full',
+										font: 'Big Money-sw',
+
+									})
+								)
+							);
+
+							//Callbacks
+							hiveLauncherInit(function(data) {
+
+								cloneBitbucketRepo(data);
+
+								setTimeout(function() {
+
+									installDependenciesThenLaunch(data);
+
+								}, 3000);
+
+							});
+
+							//Init Function
+							function hiveLauncherInit(callback) {
+								var questions = [{
+									type: "input",
+									message: 'What is your Bitbucket username? ',
+									name: "username"
+								}, {
+									type: "input",
+									message: 'What is the name of your project?',
+									name: "project"
+								}, {
+									type: 'confirm',
+									name: 'doublecheck',
+									message: 'Is this correct? (just hit enter for YES)',
+									default: true
+								}];
+
+								//Allow cofirmation to reset installation
+								function makeSure() {
+									inquirer.prompt(questions).then(function(data) {
+
+										if (data.doublecheck) {
+
+											return callback(data);
+
+										} else {
+
+											makeSure();
+
+										}
+
+									});
+								} makeSure();
+							}
+
+							//Clone Repo Function
+							function cloneBitbucketRepo(data) {
+
+								console.log(chalk.cyan.bold('Downloading repo 👍'));
+
+								shell.exec("git clone https://" + data.username + "@bitbucket.org/horizontal/hive.git " + data.project);
+							}
+
+							//Installation and Launch Function
+							function installDependenciesThenLaunch(data) {
+
+								var newProject = data.project;
+								fse.removeSync(newProject + "/.git");
+
+								console.log(chalk.cyan.bold('Starting npm install 👍'));
+
+								shell.exec('cd ' + newProject + '&& ' + 'npm install --color always');
+
+								console.log(chalk.cyan.bold('Starting gulp 👍'));
+
+								shell.exec('cd ' + newProject + '&& ' + 'gulp --color');
+							}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Demo</h2>
+					<img src="/lib/images/demo2.gif" alt="">
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

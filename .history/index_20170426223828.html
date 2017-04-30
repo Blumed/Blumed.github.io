@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Build Your Own Tools!</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/cullan.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Build Your<br>Own Tools!</h1>
+				</section>
+				<section>
+					<h2>Why build your<br>own tools?</h2>
+					<ul>
+						<li class="fragment visible current-fragment">Automation Is Speed</li>
+						<li class="fragment visible current-fragment">Learn Something New</li>
+						<li class="fragment visible current-fragment">Problem Solving</li>
+					</ul>
+				</section>
+				<section data-background="/lib/images/hulk.png"></section>
+				<section>
+					<h2>Projects</h2>
+					<ul>
+						<li class="fragment visible current-fragment">First Generation HIVE Launcher (Bash)</li>
+						<li class="fragment visible current-fragment">Second Generation HIVE Launcher (Node)</li>
+						<li class="fragment visible current-fragment">Batch Image Processesor</li>
+						<li class="fragment visible current-fragment">Filelist</li>
+						<li class="fragment visible current-fragment">Bass64</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Bass64</h2>
+					<pre>
+						<code>
+bass64(){
+  filename=$(basename $1)
+  ext=${filename##*.}
+  if [ $ext == gif ]; then
+    append="data:image/gif;base64,";
+  elif [ $ext == jpeg ] || [ $ext == jpg ]; then
+    append="data:image/jpeg;base64,";
+  elif [ $ext == png ]; then
+    append="data:image/png;base64,";
+  elif [ $ext == svg ]; then
+    append="data:image/svg+xml;base64,";
+  elif [ $ext == ico ]; then
+    append="data:image/vnd.microsoft.icon;base64,";
+  fi
+
+#Mathias Bynens - http://superuser.com/questions/120796/os-x-base64-encode-via-command-line
+data=$(openssl base64 < $1 | tr -d '\n')
+
+if [ "$#" -eq 2 ] && [ $2 == -img ]; then
+	data=\<img\ src\=\"$append$data\"\ alt\=\"image\"\>
+else
+	data=$append$data
+fi
+
+echo $data | pbcopy
+
+echo "copied to clipboard"
+}
+						</code>
+					</pre>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
