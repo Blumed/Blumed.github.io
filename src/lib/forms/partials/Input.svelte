@@ -44,8 +44,9 @@
     }
     input {
         display: block;
-        background-color: var(--stone-0);
+        /* background-color: var(--stone-0); */
         width: 100%;
+        border: 1px solid var(--text-1);
     }
     .form-control {
         margin-bottom: var(--size-2);

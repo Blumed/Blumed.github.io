@@ -38,10 +38,11 @@
 <style>
     form {
         display: inline-grid;
-        border: 4px solid black;
-        padding: var(--size-6);
         border-radius: 8px;
-        background-color: white;
+        width: 100%;
+    }
+    form input {
+        border: 1px solid red;
     }
     button {
         margin-top: var(--size-4);

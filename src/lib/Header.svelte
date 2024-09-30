@@ -141,7 +141,8 @@
 		}
 
 		.corner img {
-				width: 230px;
+			width: 230px;
+			margin-inline: auto;
 		}
 
 		li a {
@@ -151,8 +152,8 @@
 
 		ul {
 			display: grid;
-			grid-template-columns: auto auto auto;
-			grid-template-rows: auto auto;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: auto 50%;
 			height: 100%;
 			padding-inline: 0;
 		}
