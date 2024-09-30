@@ -32,6 +32,7 @@
         background-repeat: repeat;
         position: relative;
         margin-top: var(--size-10);
+        margin-bottom: -48px;
 
         &:after {
             content: "";

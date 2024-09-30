@@ -18,13 +18,6 @@
 		<nav>
 			<ul>
 				<li
-					aria-current={$page.url.pathname === "/"
-						? "page"
-						: undefined}
-				>
-					<a href="/">Home</a>
-				</li>
-				<li
 					aria-current={$page.url.pathname === "/about"
 						? "page"
 						: undefined}
@@ -46,13 +39,13 @@
 					<a href="/support">Support</a>
 				</li>
 				<li>
-					<Dialog name="Schedule your visit" id="header-calendly-visit">
-						<Calendly id="header-visit"/>
+					<Dialog name="Donate" id="header-donate">
+						<Paypal />
 					</Dialog>
 				</li>
 				<li>
-					<Dialog name="Donate" id="header-donate">
-						<Paypal />
+					<Dialog name="Schedule Visit" id="header-calendly-visit">
+						<Calendly id="header-visit"/>
 					</Dialog>
 				</li>
 			</ul>
@@ -135,5 +128,33 @@
 
 	a:hover {
 		color: var(--brand);
+	}
+
+	@media (max-width: 767px) {
+		.container {
+			display: flex;
+    		flex-wrap: wrap;
+		}
+
+		.corner {
+			width: 100%;
+		}
+
+		.corner img {
+				width: 230px;
+		}
+
+		li a {
+			height: 40px;
+			display: inline-flex;
+		}
+
+		ul {
+			display: grid;
+			grid-template-columns: auto auto auto;
+			grid-template-rows: auto auto;
+			height: 100%;
+			padding-inline: 0;
+		}
 	}
 </style>
