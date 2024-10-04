@@ -2,8 +2,8 @@
 	import { page } from "$app/stores";
 	import logo from "$lib/assets/logo.webp";
 	import Dialog from "$lib/Dialog.svelte";
-	import Calendly from "$lib/forms/Calendly.svelte";
-    import Paypal from "./forms/Paypal.svelte";
+	import Calendly from "$lib/vendors/Calendly.svelte";
+    import Paypal from "./vendors/Paypal.svelte";
 </script>
 
 <a href="#main-content" class="skip-link"> Skip to content </a>
@@ -45,7 +45,7 @@
 				</li>
 				<li class="mobile-half-column">
 					<Dialog name="Schedule Visit" id="header-calendly-visit">
-						<Calendly id="header-visit"/>
+						<Calendly />
 					</Dialog>
 				</li>
 			</ul>
@@ -149,6 +149,7 @@
 			display: flex;
 			justify-content: center;
 			padding-left: 0;
+			
 		}
 		li a {
 				height: 40px;

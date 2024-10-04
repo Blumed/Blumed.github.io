@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import Calendly from "$lib/forms/Calendly.svelte";
+    import Calendly from "$lib/vendors/Calendly.svelte";
     import Dialog from "$lib/Dialog.svelte";
 
     export let title: string;
@@ -17,7 +17,7 @@
         <h2>{title}</h2>
         <p>{copy}</p>
         <Dialog name={button_text} id="visit-us">
-            <Calendly id="visit" />
+            <Calendly />
         </Dialog>
     </div>
 </section>
