@@ -128,6 +128,9 @@
             grid-template-columns: auto;
             grid-template-rows: auto auto;
         }
+        .content {
+            z-index: inherit;
+        }
         .content:first-of-type {
             margin-top: 0;
             height: 100%;
