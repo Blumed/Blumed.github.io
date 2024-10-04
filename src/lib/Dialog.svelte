@@ -5,23 +5,23 @@
     export let name: string;
     export let id: string;
     let showDialog = false;
-    
-    $: if(showDialog){
-        document.getElementById(id)?.addEventListener('click', event => {
-            if(event.target === document.getElementById(id)) {
+
+    $: if (showDialog) {
+        document.getElementById(id)?.addEventListener("click", (event) => {
+            if (event.target === document.getElementById(id)) {
                 document.getElementById(id).close();
             }
         });
     }
 
     function dialogOpen() {
-        if(browser && id) {
+        if (browser && id) {
             document.getElementById(id).showModal();
             showDialog = true;
         }
     }
     function dialogClose() {
-        if(browser && id) {
+        if (browser && id) {
             document.getElementById(id).close();
             showDialog = false;
         }
@@ -41,11 +41,11 @@
             type="button"
             class="button button-close"
             on:click={() => dialogClose()}
-            aria-label={`Close ${name} Dialog`}>
-                <span class="sr-only">Close</span>
-                <IconClose fill="red" />
-            </button
+            aria-label={`Close ${name} Dialog`}
         >
+            <span class="sr-only">Close</span>
+            <IconClose fill="red" />
+        </button>
         <slot />
     </div>
 </dialog>
@@ -54,9 +54,11 @@
     dialog {
         padding: 0;
         background-color: white;
+        overflow-x: hidden;
     }
 
     .dialog-innereds {
+        width: 100%;
         padding: 46px 18px 18px;
     }
     .button-dialog {
