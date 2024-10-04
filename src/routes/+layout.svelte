@@ -2,6 +2,7 @@
 	import Header from "$lib/Header.svelte";
 	import "../app.css";
 	import Footer from "$lib/Footer.svelte";
+	import MobileDrawer from "$lib/MobileDrawer.svelte";
 </script>
 
 <div class="app">
@@ -12,6 +13,7 @@
 	</main>
 
 	<Footer />
+	<MobileDrawer />
 </div>
 
 <style>

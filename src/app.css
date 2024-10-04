@@ -30,14 +30,14 @@
 	--font-body: "Inter", Arial, 'Segoe UI', 'Helvetica Neue', sans-serif;
 	--brand: var(--green-5);
 	--body: var(--stone-0);
-  	--text-1: var(--color-black);
-  	--text-2: var(--text-2-light);
+	--text-1: var(--color-black);
+	--text-2: var(--text-2-light);
 	--link-visited: var(--green-8);
 
-  	--surface-1: var(--color-white);
-  	--surface-2: var(--surface-2-light);
-  	--surface-3: var(--surface-3-light);
-  	--surface-4: var(--surface-4-light);
+	--surface-1: var(--color-white);
+	--surface-2: var(--surface-2-light);
+	--surface-3: var(--surface-3-light);
+	--surface-4: var(--surface-4-light);
 
 	--color-black: #161613;
 	--color-white: #fff;
@@ -93,13 +93,13 @@ a {
 
 dialog {
 	max-width: 500px;
-    width: 100%;
+	width: 100%;
 	box-shadow: var(--shadow-3);
 	border: 4px solid var(--text-1);
 
 	&::backdrop {
-	    backdrop-filter: blur(5px);
-    	-webkit-backdrop-filter: blur(5px);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
 	}
 }
 
@@ -114,4 +114,16 @@ dialog {
 	position: absolute !important;
 	width: 1px !important;
 	white-space: nowrap !important;
+}
+
+.mobile-hidden {
+	@media (max-width: 767px) {
+		display: none !important;
+	}
+}
+
+.desktop-hidden {
+	@media (min-width: 768px) {
+		display: none !important;
+	}
 }

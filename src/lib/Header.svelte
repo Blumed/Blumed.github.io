@@ -3,7 +3,7 @@
 	import logo from "$lib/assets/logo.webp";
 	import Dialog from "$lib/Dialog.svelte";
 	import Calendly from "$lib/vendors/Calendly.svelte";
-    import Paypal from "./vendors/Paypal.svelte";
+	import Paypal from "./vendors/Paypal.svelte";
 </script>
 
 <a href="#main-content" class="skip-link"> Skip to content </a>
@@ -38,13 +38,16 @@
 				>
 					<a href="/support">Support</a>
 				</li>
-				<li class="mobile-half-column">
-					<Dialog name="Donate" id="header-donate">
+				<li class="mobile-hidden">
+					<Dialog name="Donate" id="header-donate-desktop">
 						<Paypal />
 					</Dialog>
 				</li>
-				<li class="mobile-half-column">
-					<Dialog name="Schedule Visit" id="header-calendly-visit">
+				<li class="mobile-hidden">
+					<Dialog
+						name="Schedule Visit"
+						id="header-calendly-visit-desktop"
+					>
 						<Calendly />
 					</Dialog>
 				</li>
@@ -67,7 +70,7 @@
 	}
 	header {
 		position: sticky;
-		top:0;
+		top: 0;
 		z-index: 10;
 		background-color: var(--body);
 		padding-block: 1rem;
@@ -131,12 +134,19 @@
 	}
 
 	@media (max-width: 767px) {
+		header {
+			padding-bottom: 0;
+		}
 		.container {
 			display: flex;
-    		flex-wrap: wrap;
+			flex-wrap: wrap;
+		}
+		.corner {
+			margin-bottom: var(--size-4);
 		}
 
-		.corner, nav {
+		.corner,
+		nav {
 			width: 100%;
 		}
 
@@ -149,11 +159,12 @@
 			display: flex;
 			justify-content: center;
 			padding-left: 0;
-			
 		}
 		li a {
-				height: 40px;
-				display: inline-flex;
+			height: 40px;
+			display: inline-flex;
+			width: 100%;
+			justify-content: center;
 		}
 
 		ul {
@@ -163,10 +174,5 @@
 			height: 100%;
 			padding-inline: 0;
 		}
-		.mobile-half-column {
-			grid-auto-columns: 150px;
-		}
 	}
 </style>
-
-
