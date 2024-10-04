@@ -21,6 +21,7 @@
         background-color: var(--body);
         left: 0;
         right: 0;
+        z-index: 10;
         display: grid;
         grid-template-columns: auto auto;
         gap: 10px;
