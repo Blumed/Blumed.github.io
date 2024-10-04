@@ -40,40 +40,38 @@
         </div>
         <div class="continue-story">
             <p>
-                When Patty and Greg invited their son’s special education
-                class out to the family’s property, they were heartened to
-                see how positively other kids with a variety of disabilities
-                and accessibility needs responded to the environment. A new
-                purpose was born, and the Clossers set about planning an
-                accessible farm that would be intentionally designed to
-                welcome adults and children with disabilities, especially
-                those with more significant support needs, at no cost. As
-                Greg put it, “You only live so long. I believe everyone
-                should do something to make this world better. We didn’t
-                want to leave this earth without doing something.”
+                When Patty and Greg invited their son’s special education class
+                out to the family’s property, they were heartened to see how
+                positively other kids with a variety of disabilities and
+                accessibility needs responded to the environment. A new purpose
+                was born, and the Clossers set about planning an accessible farm
+                that would be intentionally designed to welcome adults and
+                children with disabilities, especially those with more
+                significant support needs, at no cost. As Greg put it, “You only
+                live so long. I believe everyone should do something to make
+                this world better. We didn’t want to leave this earth without
+                doing something.”
             </p>
             <p>
-                In 2013, Greg and Patty successfully obtained 501(c)3 status
-                and quickly broke ground on a 3400 square foot accessible
-                building to replace an old shed they’d repurposed on the
-                grounds. With Greg’s retirement a few years later, the
-                family launched a full fundraising effort to expand indoor
-                and outdoor recreational amenities. These efforts allowed
-                the Clossers to add a 3.5 acre fenced-in outdoor playground
-                with walking/rolling paths, a pavilion, interactive play
-                structures and more.
+                In 2013, Greg and Patty successfully obtained 501(c)3 status and
+                quickly broke ground on a 3400 square foot accessible building
+                to replace an old shed they’d repurposed on the grounds. With
+                Greg’s retirement a few years later, the family launched a full
+                fundraising effort to expand indoor and outdoor recreational
+                amenities. These efforts allowed the Clossers to add a 3.5 acre
+                fenced-in outdoor playground with walking/rolling paths, a
+                pavilion, interactive play structures and more.
             </p>
             <p>
-                Through a wide network of dedicated donors, community
-                grants, and the family’s ongoing contributions, the Clossers
-                have worked tirelessly to add features to the farm based on
-                community feedback while ensuring the farm remains free for
-                people with disabilities. The Clossers have a purpose that’s
-                grown well beyond their family and is now a part of their
-                legacy. Patty shares, “After moving here, where our sons had
-                the room to run and feel free, a huge weight was lifted.
-                That is the same feeling we hope to give everyone who visits
-                A Great Day Farm.”
+                Through a wide network of dedicated donors, community grants,
+                and the family’s ongoing contributions, the Clossers have worked
+                tirelessly to add features to the farm based on community
+                feedback while ensuring the farm remains free for people with
+                disabilities. The Clossers have a purpose that’s grown well
+                beyond their family and is now a part of their legacy. Patty
+                shares, “After moving here, where our sons had the room to run
+                and feel free, a huge weight was lifted. That is the same
+                feeling we hope to give everyone who visits A Great Day Farm.”
             </p>
         </div>
     </div>
@@ -99,7 +97,6 @@
         position: relative;
         z-index: 2;
         background: white;
-        height: 64%;
         margin-top: 29%;
 
         & p {
@@ -121,6 +118,27 @@
 
         & p {
             margin: 0 auto 1.5rem;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .content-layout {
+            /* display: flex;
+            flex-direction: column-reverse; */
+            grid-template-columns: auto;
+            grid-template-rows: auto auto;
+        }
+        .content:first-of-type {
+            margin-top: 0;
+            height: 100%;
+        }
+        .content-image {
+            grid-column: 1 / 2;
+            margin-left: 0;
+            top: 30px;
+        }
+        .continue-story {
+            margin-top: 30px;
         }
     }
 </style>
