@@ -28,7 +28,7 @@ import logo from "$lib/assets/logo.webp";
                 </Dialog>
             </div>
         </div>
-        <address class="contacti-info">
+        <address class="footer-group contacti-info">
             <h3>Contact Us</h3>
             <div>Phone: <a href="tel:15076631370" title="click to call">(507) 663-1370</a></div>
             <div>Email: <Copy text="hello@agreatday.org" /></div>
@@ -80,10 +80,9 @@ import logo from "$lib/assets/logo.webp";
         }
     }
 
-    .links {
-        & a {
-            display: block;
-        }
+    nav {
+        display: flex;
+        flex-direction: column;
     }
     .company-legal {
         & > .container {
@@ -109,6 +108,12 @@ import logo from "$lib/assets/logo.webp";
         & small {
             display: block;
             max-inline-size: fit-content;
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav a {
+            padding-block: 8px;
         }
     }
 </style>

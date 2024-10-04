@@ -38,12 +38,12 @@
 				>
 					<a href="/support">Support</a>
 				</li>
-				<li>
+				<li class="mobile-half-column">
 					<Dialog name="Donate" id="header-donate">
 						<Paypal />
 					</Dialog>
 				</li>
-				<li>
+				<li class="mobile-half-column">
 					<Dialog name="Schedule Visit" id="header-calendly-visit">
 						<Calendly id="header-visit"/>
 					</Dialog>
@@ -136,7 +136,7 @@
     		flex-wrap: wrap;
 		}
 
-		.corner {
+		.corner, nav {
 			width: 100%;
 		}
 
@@ -145,17 +145,27 @@
 			margin-inline: auto;
 		}
 
+		li {
+			display: flex;
+			justify-content: center;
+			padding-left: 0;
+		}
 		li a {
-			height: 40px;
-			display: inline-flex;
+				height: 40px;
+				display: inline-flex;
 		}
 
 		ul {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: auto 50%;
+			grid-template-rows: auto auto;
 			height: 100%;
 			padding-inline: 0;
 		}
+		.mobile-half-column {
+			grid-auto-columns: 150px;
+		}
 	}
 </style>
+
+

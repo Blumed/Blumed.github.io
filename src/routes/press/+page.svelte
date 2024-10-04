@@ -7,8 +7,8 @@
 </script>
 
 <Hero
-    title="Press"
-    content="Collection of A Great Day Farm articles in the news."
+    title="Press Example Text"
+    content="Collection of A Great Day Farm articles in the news. Going to add a bit more text here so you can see how a bit more text looks here."
 />
 
 <section class="section articles">

@@ -32,6 +32,7 @@
 	--body: var(--stone-0);
   	--text-1: var(--color-black);
   	--text-2: var(--text-2-light);
+	--link-visited: var(--green-8);
 
   	--surface-1: var(--color-white);
   	--surface-2: var(--surface-2-light);
@@ -81,14 +82,20 @@ p {
 }
 
 iframe {
+	width: 100%;
 	max-width: 100%;
 	border-radius: var(--radius-3);
+}
+
+a {
+	text-decoration-color: var(--text-1);
 }
 
 dialog {
 	max-width: 500px;
     width: 100%;
 	box-shadow: var(--shadow-3);
+	border: 4px solid var(--text-1);
 
 	&::backdrop {
 	    backdrop-filter: blur(5px);
