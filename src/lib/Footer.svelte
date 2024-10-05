@@ -1,5 +1,5 @@
 <script>
-import logo from "$lib/assets/logo.webp";
+    import logo from "$lib/assets/logo.webp";
     import Dialog from "./Dialog.svelte";
     import Default from "./forms/Default.svelte";
     import Help from "./partials/Help.svelte";
@@ -14,27 +14,40 @@ import logo from "$lib/assets/logo.webp";
         <div class="company-info">
             <div class="footer-group">
                 <h3>Hours</h3>
-                <time datetime="">Everyday from <strong>9am - 8pm</strong></time>
-                <Help id="footer-hours">
-                    <p>hello</p>
-                </Help>
+                <time datetime="" class="company-hours"
+                    >Everyday from <strong>9am - 8pm</strong>
+                    <Help id="footer-hours">
+                        <p>
+                            <strong>Memorial Day</strong> to
+                            <strong>Labor Day</strong>: 9 am - 8 pm
+                        </p>
+                        <p>
+                            <strong>Labor Day</strong> to
+                            <strong>Memorial Day</strong>: 9 am - 5 pm
+                        </p>
+                    </Help>
+                </time>
             </div>
             <div class="footer-group">
                 <h3>Location</h3>
                 <address>
                     <Copy text={address} />
                 </address>
-                <Dialog name="Get Directions" id="footer-directions-map" >
+                <Dialog name="Get Directions" id="footer-directions-map">
                     <GoogleMaps />
                 </Dialog>
             </div>
         </div>
         <address class="footer-group contacti-info">
             <h3>Contact Us</h3>
-            <div>Phone: <a href="tel:15076631370" title="click to call">(507) 663-1370</a></div>
+            <div>
+                Phone: <a href="tel:15076631370" title="click to call"
+                    >(507) 663-1370</a
+                >
+            </div>
             <div>Email: <Copy text="hello@agreatday.org" /></div>
-            <Dialog name="Email Us" id="footer-contact-form" >
-                <Default id="general-inquery" form="message"/>
+            <Dialog name="Email Us" id="footer-contact-form">
+                <Default id="general-inquery" form="message" />
             </Dialog>
         </address>
 
@@ -52,15 +65,17 @@ import logo from "$lib/assets/logo.webp";
 
     <div class="company-legal">
         <div class="container">
-
-        <div class="legal-content">
-            <small>
-                Copyright &copy;{new Date().getFullYear()} A Great Day Farm. All
-                Rights Reserved |
-                <a href="/privacy-policy">Privacy Policy</a>
-            </small>
-            <small>A Great Day Farm is a 501(c)3 private operating foundation recognized by the IRS. Tax ID number: 46-4272037</small>
-        </div>
+            <div class="legal-content">
+                <small>
+                    Copyright &copy;{new Date().getFullYear()} A Great Day Farm.
+                    All Rights Reserved |
+                    <a href="/privacy-policy">Privacy Policy</a>
+                </small>
+                <small
+                    >A Great Day Farm is a 501(c)3 private operating foundation
+                    recognized by the IRS. Tax ID number: 46-4272037</small
+                >
+            </div>
         </div>
     </div>
 </footer>
@@ -96,6 +111,9 @@ import logo from "$lib/assets/logo.webp";
 
     .footer-group {
         margin-bottom: 1.5rem;
+    }
+    .company-hours {
+        position: relative;
     }
     .company-legal {
         margin-top: var(--size-5);

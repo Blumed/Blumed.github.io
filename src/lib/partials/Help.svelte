@@ -3,9 +3,10 @@
 
     export let id;
 </script>
+
 <details class="helper-container" {id}>
     <summary><IconHelp /></summary>
-    <div class="helper-content" role="tooltip"><slot/></div>
+    <div class="helper-content" role="tooltip"><slot /></div>
 </details>
 
 <style>
@@ -18,13 +19,22 @@
     }
     .helper-container {
         display: inline-block;
-        position: relative;
-        top: 6px;
-    }
-    /* .helper-content {
         position: absolute;
-        bottom: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-    } */
+    }
+    .helper-content {
+        width: max-content;
+        background-color: var(--body);
+        padding: 10px;
+        border: 4px solid var(--text-1);
+        border-radius: var(--radius-3);
+        position: absolute;
+        left: -26px;
+    }
+
+    @media (max-width: 767px) {
+        .helper-content {
+            left: inherit;
+            right: -26px;
+        }
+    }
 </style>
