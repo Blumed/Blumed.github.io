@@ -74,6 +74,11 @@
 			background-color: white;
 			padding: 34px;
 		}
+
+		& .container {
+			position: relative;
+			left: -150px;
+		}
 	}
 	.hero-background-image {
 		position: absolute;
@@ -96,5 +101,14 @@
 		border-radius: 50%;
 		padding: 8px;
 		margin-bottom: var(--size-3);
+	}
+
+	@media (max-width: 767px) {
+		.hero {
+			padding-block: 200px 0;
+		}
+		.hero .container {
+			left: 0;
+		}
 	}
 </style>
