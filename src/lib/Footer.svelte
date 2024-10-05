@@ -5,6 +5,8 @@
     import Help from "./partials/Help.svelte";
     import Copy from "./partials/Copy.svelte";
     import GoogleMaps from "./vendors/GoogleMaps.svelte";
+    import IconFacebook from "./assets/icons/IconFacebook.svelte";
+    import IconInstragram from "./assets/icons/IconInstragram.svelte";
 
     const address = "5575 115th St. East, Northfield, MN 55057";
 </script>
@@ -38,7 +40,7 @@
                 </Dialog>
             </div>
         </div>
-        <address class="footer-group contacti-info">
+        <address class="footer-group contact-info">
             <h3>Contact Us</h3>
             <div>
                 Phone: <a href="tel:15076631370" title="click to call"
@@ -49,6 +51,28 @@
             <Dialog name="Email Us" id="footer-contact-form">
                 <Default id="general-inquery" form="message" />
             </Dialog>
+            <div class="social-icons">
+                <a
+                    class="social-icon icon-facebook"
+                    href="https://www.facebook.com/AGreatDayFarmNorthfield/"
+                    title="Follow us on Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <IconFacebook />
+                    <span class="sr-only">Visit us on Facebook</span>
+                </a>
+                <a
+                    class="social-icon icon-instagram"
+                    href="https://www.instagram.com/explore/locations/148135145889565/a-great-day-farm/recent/"
+                    title="Follow us on Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <IconInstragram />
+                    <span class="sr-only">Visit us on Instagram</span>
+                </a>
+            </div>
         </address>
 
         <div class="links">
@@ -114,6 +138,18 @@
     }
     .company-hours {
         position: relative;
+
+        & p + p {
+            margin-top: 0;
+        }
+    }
+    .social-icons {
+        margin-top: var(--size-2);
+    }
+    .social-icon {
+        display: inline-block;
+        padding: 10px;
+        color: var(--text-1);
     }
     .company-legal {
         margin-top: var(--size-5);

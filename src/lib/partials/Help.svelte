@@ -25,8 +25,8 @@
     .helper-content {
         width: max-content;
         background-color: var(--body);
-        padding: 20px 10px;
-        border: 4px solid var(--text-1);
+        padding: 20px;
+        border: 1px solid var(--text-1);
         border-radius: var(--radius-3);
         position: absolute;
         left: -26px;

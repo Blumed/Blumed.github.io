@@ -3,6 +3,7 @@
 	import IconGroup from "$lib/assets/icons/IconGroup.svelte";
 	import IconIndoor from "$lib/assets/icons/IconIndoor.svelte";
 	import IconOutdoor from "$lib/assets/icons/IconOutdoor.svelte";
+	import HeroBackground from "$lib/assets/home-hero copy.jpg";
 </script>
 
 <svelte:head>
@@ -21,6 +22,12 @@
 			communities.
 		</p>
 	</div>
+	<img
+		class="hero-background-image"
+		src={HeroBackground}
+		alt="Happy friends at a great day farm"
+		loading="eager"
+	/>
 </section>
 
 <section class="section">
@@ -54,6 +61,25 @@
 </section>
 
 <style>
+	.hero {
+		position: relative;
+		z-index: 1;
+		padding-block: 260px;
+		overflow: hidden;
+
+		& :is(h1, p) {
+			position: relative;
+			z-index: 2;
+			/* color: var(--brand); */
+			background-color: white;
+			padding: 34px;
+		}
+	}
+	.hero-background-image {
+		position: absolute;
+		top: 0;
+		z-index: 1;
+	}
 	.card {
 		padding: var(--size-8) var(--size-5) var(--size-4);
 		& h2 {
