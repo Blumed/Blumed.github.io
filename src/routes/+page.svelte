@@ -32,6 +32,7 @@
 				</div>
 				<h2>Indoor recreation center for events, play, and learning</h2>
 			</article>
+
 			<article class="card">
 				<div class="card-icon">
 					<IconOutdoor width="100%" />
@@ -41,6 +42,7 @@
 					adventure
 				</h2>
 			</article>
+
 			<article class="card">
 				<div class="card-icon">
 					<IconGroup width="100%" />

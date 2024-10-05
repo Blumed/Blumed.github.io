@@ -47,6 +47,9 @@
 	accent-color: var(--link);
 }
 
+html:has(dialog[open]) {
+	overflow: hidden;
+}
 
 body {
 	min-height: 100vh;
@@ -122,11 +125,31 @@ dialog {
 	max-width: 500px;
 	width: 100%;
 	box-shadow: var(--shadow-3);
-	border: 4px solid var(--text-1);
+	border: 1px solid var(--text-1);
+	max-inline-size: min(90vw, var(--size-content-3));
+	max-block-size: min(80vh, 100%);
+	max-block-size: min(80dvb, 100%);
 
 	&::backdrop {
 		backdrop-filter: blur(5px);
+		transition: backdrop-filter .5s ease;
 		-webkit-backdrop-filter: blur(5px);
+	}
+
+	&:not([open]) {
+		pointer-events: none;
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	dialog {
+		animation: var(--animation-scale-down) forwards;
+		animation-timing-function: var(--ease-squish-3);
+	}
+
+	dialog[open] {
+		animation: var(--animation-slide-in-up) forwards;
 	}
 }
 

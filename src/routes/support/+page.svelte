@@ -132,4 +132,12 @@
         margin-top: var(--size-5);
         background-color: var(--body);
     }
+    .card:last-of-type {
+        grid-column-start: span 2;
+        grid-column-end: auto;
+
+        @media (max-width: 767px) {
+            grid-column-start: inherit;
+        }
+    }
 </style>
