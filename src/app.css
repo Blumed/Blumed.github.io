@@ -127,8 +127,6 @@ dialog {
 	box-shadow: var(--shadow-3);
 	border: 1px solid var(--text-1);
 	max-inline-size: min(90vw, var(--size-content-3));
-	max-block-size: min(80vh, 100%);
-	max-block-size: min(80dvb, 100%);
 
 	&::backdrop {
 		backdrop-filter: blur(5px);
