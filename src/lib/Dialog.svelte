@@ -4,6 +4,7 @@
 
     export let name: string;
     export let id: string;
+    export let type: "link" | null;
     let showDialog = false;
 
     $: if (showDialog) {
@@ -31,6 +32,7 @@
 <button
     type="button"
     class="button button-dialog"
+    class:btn-link={type === "link"}
     on:click={() => dialogOpen()}
     aria-label={`Open ${name} Dialog`}>{name}</button
 >
@@ -73,5 +75,16 @@
         margin-left: auto;
         margin-bottom: var(--size-2);
         display: block;
+    }
+    .btn-link {
+        padding: 0;
+        background-color: transparent;
+        color: var(--brand);
+        font-weight: inherit;
+        text-transform: none;
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--text-1);
+        }
     }
 </style>

@@ -95,7 +95,6 @@
 		justify-content: center;
 		align-items: center;
 		list-style: none;
-		padding-inline: 2rem;
 	}
 
 	li {

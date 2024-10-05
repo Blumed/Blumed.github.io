@@ -41,9 +41,7 @@
         border-radius: 8px;
         width: 100%;
     }
-    form input {
-        border: 1px solid red;
-    }
+
     button {
         margin-top: var(--size-4);
         color: inherit;

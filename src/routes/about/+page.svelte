@@ -14,68 +14,81 @@
     content="Recreational Facility for Developmentally Disabled Individuals"
 />
 
-<section class="section">
+<section class="section less-spacing">
     <div class="container">
-        <div class="content-layout">
-            <div class="content">
+        <h2>
+            As a 501(c)(3) private operating foundation, A Great Day Farm’s
+            mission is to offer free recreation and community-building
+            opportunities for people with disabilities.
+        </h2>
+        <p>
+            We are focused on providing a community-centric space that allows
+            people, especially those who navigate barriers in many other
+            environments, to experience the freedom and joy of play. We welcome
+            individuals with disabilities ranging in age from young children to
+            aging adults as well as their families and the various groups that
+            provide support - schools, day service centers, group homes and
+            more.
+        </p>
+    </div>
+</section>
+<section class="section less-spacing">
+    <div class="container">
+        <blockquote>
+            “My son loves coming to A Great Day Farm. You can just feel his
+            enjoyment to wander and explore things on his own without any
+            constraints. It makes me very happy to see him so carefree.”
+        </blockquote>
+    </div>
+</section>
+<section class="section less-spacing">
+    <div class="container">
+        <div class="cards">
+            <article class="card card-invert">
                 <h2>Our Story</h2>
                 <p>
-                    Founded by Greg and Patty Closser of Northfield, MN, A Great
-                    Day Farm grew organically from their experiences as parents
-                    to seven biological and adopted kids - two of whom have
-                    disabilities with unique support needs. As they raised their
-                    family, the Clossers realized that their kids’ disability
-                    impacts posed challenges in many traditional public
-                    environments. Greg, a handy business owner, and Patty, a
-                    stay-at-home parent with a creative vision, sought to build
-                    a home environment that met their sons’ needs while
-                    providing the space & freedom to be fully themselves.
+                    For many years, the Closser Family struggled to find places
+                    that felt welcoming of their family’s diverse accessibility
+                    needs. When they saw how two of their kids with disabilities
+                    responded to the freedom of an open and safe environment on
+                    a farm, their course was set. The Closser family set up a
+                    501(c)(3) private operating foundation and they’ve been
+                    focused on helping others experience this opportunity ever
+                    since.
                 </p>
-            </div>
-            <img
-                class="content-image"
-                src={ArticleImage}
-                alt="Having fun at a great day farm"
-            />
-        </div>
-        <div class="continue-story">
-            <p>
-                When Patty and Greg invited their son’s special education class
-                out to the family’s property, they were heartened to see how
-                positively other kids with a variety of disabilities and
-                accessibility needs responded to the environment. A new purpose
-                was born, and the Clossers set about planning an accessible farm
-                that would be intentionally designed to welcome adults and
-                children with disabilities, especially those with more
-                significant support needs, at no cost. As Greg put it, “You only
-                live so long. I believe everyone should do something to make
-                this world better. We didn’t want to leave this earth without
-                doing something.”
-            </p>
-            <p>
-                In 2013, Greg and Patty successfully obtained 501(c)3 status and
-                quickly broke ground on a 3400 square foot accessible building
-                to replace an old shed they’d repurposed on the grounds. With
-                Greg’s retirement a few years later, the family launched a full
-                fundraising effort to expand indoor and outdoor recreational
-                amenities. These efforts allowed the Clossers to add a 3.5 acre
-                fenced-in outdoor playground with walking/rolling paths, a
-                pavilion, interactive play structures and more.
-            </p>
-            <p>
-                Through a wide network of dedicated donors, community grants,
-                and the family’s ongoing contributions, the Clossers have worked
-                tirelessly to add features to the farm based on community
-                feedback while ensuring the farm remains free for people with
-                disabilities. The Clossers have a purpose that’s grown well
-                beyond their family and is now a part of their legacy. Patty
-                shares, “After moving here, where our sons had the room to run
-                and feel free, a huge weight was lifted. That is the same
-                feeling we hope to give everyone who visits A Great Day Farm.”
-            </p>
+                <a class="link-btn" href="/our-story"
+                    >Learn more about our Story</a
+                >
+            </article>
+            <article class="card">
+                <h2>Our Approach</h2>
+                <p>
+                    We work to address gaps for people with disabilities who
+                    often experience significant barriers to using
+                    community-based “<a
+                        href="https://en.wikipedia.org/wiki/Third_place"
+                        target="_blank"
+                        rel="noopener noreferrer">third places</a
+                    >.” A Great Day Farm hopes to provide a sense of freedom and
+                    exploration by offering a range of flexible activities and
+                    spaces on a drop-in basis to support all types of adventures
+                    and needs.
+                </p>
+            </article>
+            <article class="card">
+                <h2>Our Impact</h2>
+                <p>
+                    By removing traditional barriers to recreation (whether that
+                    is physical, financial, scheduling, safety, or attitudinal),
+                    thousands of farm visitors have experienced the benefits of
+                    recreation, enhanced connection to nature and a chance to
+                    build autonomy in a safe and structured space.
+                </p>
+            </article>
         </div>
     </div>
 </section>
+
 <Visit
     title="Come have a great day"
     copy="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatibus aut asperiores eum."
@@ -83,66 +96,7 @@
 />
 
 <style>
-    .content-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-bottom: var(--size-8);
-    }
-
-    .content {
-        grid-column: 1 / 2;
-        border: 4px solid black;
-        border-radius: 8px;
-        padding: var(--size-6);
-        position: relative;
-        z-index: 2;
-        height: max-content;
-        background: white;
-        margin-top: 29%;
-
-        & p {
-            margin-bottom: 1rem;
-        }
-    }
-
-    .content-image {
-        grid-column: -1 / 2;
-        border-radius: 8px;
-        margin-left: -16%;
-        position: relative;
-        z-index: 1;
-        top: 18%;
-    }
-
-    .continue-story {
-        margin-top: 200px;
-
-        & p {
-            margin: 0 auto 1.5rem;
-        }
-    }
-
-    @media (max-width: 767px) {
-        .content-layout {
-            /* display: flex;
-            flex-direction: column-reverse; */
-            grid-template-columns: auto;
-            grid-template-rows: auto auto;
-        }
-        .content {
-            z-index: inherit;
-        }
-        .content:first-of-type {
-            margin-top: 0;
-        }
-        .content-image {
-            grid-column: 1 / 2;
-            margin-left: 0;
-            top: 30px;
-            z-index: inherit;
-        }
-        .continue-story {
-            margin-top: 30px;
-        }
+    .link-btn {
+        margin-top: var(--size-5);
     }
 </style>
