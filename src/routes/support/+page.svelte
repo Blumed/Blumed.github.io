@@ -1,4 +1,5 @@
 <script>
+    import Donate from "$lib/assets/Donate.svelte";
     import Hero from "$lib/Hero.svelte";
 </script>
 
@@ -122,6 +123,11 @@
         </p>
     </div>
 </section>
+<Donate
+    title="Support a great day"
+    copy="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatibus aut asperiores eum."
+    button_text="Donate"
+/>
 
 <style>
     blockquote {
