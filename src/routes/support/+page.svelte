@@ -37,6 +37,64 @@
         </p>
         <div class="cards column-3">
             <article class="card">
+                <h3>Volunteer</h3>
+                <p>
+                    We frequently have opportunities to give the gift of your
+                    time and creative energy to the farm! We’ll be sure to
+                    announce future needs on our website and social media.
+                </p>
+                <h4>Skills</h4>
+                <ul>
+                    <li>Gardening</li>
+                    <li>Small wood projects</li>
+                    <li>Adaptive cycling</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>Life Insurance</h3>
+                <p>
+                    Life insurance policies and other vehicles can also be used
+                    to provide charitable gifts. A Great Day Farm can be named
+                    as the owner and beneficiary of a life insurance policy. The
+                    donor can receive a tax deduction for the value of the
+                    policy.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Donor-Advised Funds</h3>
+                <p>
+                    A Great Day Farm accepts gifts from donor-advised funds.
+                    Donor-advised funds can be a flexible charitable vehicle by
+                    which you contribute funds or assets (cash, stocks, bonds
+                    and money in 401(k)s and IRAs, sometimes even
+                    cryptocurrency) to a charitable organization.
+                </p>
+            </article>
+            <article class="card">
+                <h3>In-Kind Donations</h3>
+                <p class="bottom-bumper">
+                    We’re a resourceful bunch here on the farm and are often in
+                    need of specific supplies & talents to build or enhance
+                    components of the farm at a lower cost. See our ongoing list
+                    below and contact us via the inquiry form below.
+                </p>
+                <h4>Items/Materials</h4>
+                <ul class="bottom-bumper">
+                    <li>Adaptive Bikes, especially small & medium sizes</li>
+                    <li>New/like-new adult- and kid-sized bike helmets</li>
+                    <li>Lumber</li>
+                </ul>
+                <p>
+                    Additionally, we maintain an <a
+                        href="https://a.co/fK3Nq2o"
+                        target="_blank"
+                        rel="noopener noreferrer">Amazon wishlist</a
+                    > of standard items we purchase on a recurring basis and encourage
+                    you to contribute to our efforts in this way. Thank you for your
+                    consideration!
+                </p>
+            </article>
+            <article class="card">
                 <h3>Bequests</h3>
                 <p>
                     You may name A Great Day Farm Foundation as a residual
@@ -59,70 +117,10 @@
                     115th St E, Northfield, MN 55057, for its general purposes.”
                 </blockquote>
             </article>
-            <article class="card">
-                <h3>Donor-Advised Funds</h3>
-                <p>
-                    A Great Day Farm accepts gifts from donor-advised funds.
-                    Donor-advised funds can be a flexible charitable vehicle by
-                    which you contribute funds or assets (cash, stocks, bonds
-                    and money in 401(k)s and IRAs, sometimes even
-                    cryptocurrency) to a charitable organization.
-                </p>
-            </article>
-            <article class="card">
-                <h3>Life Insurance</h3>
-                <p>
-                    Life insurance policies and other vehicles can also be used
-                    to provide charitable gifts. A Great Day Farm can be named
-                    as the owner and beneficiary of a life insurance policy. The
-                    donor can receive a tax deduction for the value of the
-                    policy.
-                </p>
-            </article>
         </div>
     </div>
 </section>
-<section class="section less-spacing">
-    <div class="container">
-        <h2>In-Kind Donations</h2>
-        <p class="bottom-bumper">
-            We’re a resourceful bunch here on the farm and are often in need of
-            specific supplies & talents to build or enhance components of the
-            farm at a lower cost. See our ongoing list below and contact us via
-            the inquiry form below.
-        </p>
-        <h3>Items/Materials</h3>
-        <ul class="bottom-bumper">
-            <li>Adaptive Bikes, especially small & medium sizes</li>
-            <li>New/like-new adult- and kid-sized bike helmets</li>
-            <li>Lumber</li>
-        </ul>
-        <h3>Skills</h3>
-        <ul>
-            <li>Gardening</li>
-            <li>Small wood projects</li>
-            <li>Adaptive cycling</li>
-        </ul>
-        <p>
-            Additionally, we maintain an <a
-                href="https://a.co/fK3Nq2o"
-                target="_blank"
-                rel="noopener noreferrer">Amazon wishlist</a
-            > of standard items we purchase on a recurring basis and encourage you
-            to contribute to our efforts in this way. Thank you for your consideration!
-        </p>
-    </div>
-</section>
-<section class="section less-spacing">
-    <div class="container">
-        <h2>Volunteer</h2>
-        <p>
-            We frequently have opportunities to give the gift of your time and
-            creative energy to the farm! We’ll be sure to announce future needs
-            on our website and social media.
-        </p>
-    </div>
-</section>
+
 <Donate
     title="Support a great day"
     copy="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatibus aut asperiores eum."

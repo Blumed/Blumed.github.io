@@ -58,7 +58,6 @@
                 <a href="/our-team">Team</a>
                 <a href="/press">Press</a>
                 <a href="/faq">Farm Faq's</a>
-                <a href="/accessibility-policy">Accessibility Policy</a>
             </nav>
         </div>
     </div>
@@ -69,7 +68,8 @@
                 <small>
                     Copyright &copy;{new Date().getFullYear()} A Great Day Farm.
                     All Rights Reserved |
-                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/privacy-policy">Privacy Policy</a> |
+                    <a href="/accessibility-policy">Accessibility Policy</a>
                 </small>
                 <small
                     >A Great Day Farm is a 501(c)3 private operating foundation
