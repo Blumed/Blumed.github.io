@@ -96,6 +96,7 @@
         padding: var(--size-6);
         position: relative;
         z-index: 2;
+        height: max-content;
         background: white;
         margin-top: 29%;
 
@@ -133,12 +134,12 @@
         }
         .content:first-of-type {
             margin-top: 0;
-            height: 100%;
         }
         .content-image {
             grid-column: 1 / 2;
             margin-left: 0;
             top: 30px;
+            z-index: inherit;
         }
         .continue-story {
             margin-top: 30px;
