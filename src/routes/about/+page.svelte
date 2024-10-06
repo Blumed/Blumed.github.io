@@ -1,6 +1,7 @@
 <script>
     import Hero from "$lib/Hero.svelte";
     import ArticleImage from "$lib/assets/about-article.png";
+    import heroBackground from "$lib/assets/old-truck.jpg";
     import Visit from "$lib/Visit.svelte";
 </script>
 
@@ -9,17 +10,13 @@
     <meta name="description" content="About this app" />
 </svelte:head>
 
-<Hero
-    title="About Us"
-    content="Recreational Facility for Developmentally Disabled Individuals"
-/>
+<Hero title="About Us" {heroBackground} />
 
 <section class="section less-spacing">
     <div class="container">
         <h2>
-            As a 501(c)(3) private operating foundation, A Great Day Farm’s
-            mission is to offer free recreation and community-building
-            opportunities for people with disabilities.
+            We offer free recreation and community-building opportunities for
+            people with disabilities.
         </h2>
         <p>
             We are focused on providing a community-centric space that allows

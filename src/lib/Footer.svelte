@@ -17,7 +17,7 @@
             <div class="footer-group">
                 <h3>Hours</h3>
                 <time datetime="" class="company-hours"
-                    >Everyday from <strong>9am - 8pm</strong>
+                    >Everyday from <strong>9am - 5pm</strong>
                     <Help id="footer-hours">
                         <p>
                             <strong>Memorial Day</strong> to
@@ -61,16 +61,6 @@
                 >
                     <IconFacebook />
                     <span class="sr-only">Visit us on Facebook</span>
-                </a>
-                <a
-                    class="social-icon icon-instagram"
-                    href="https://www.instagram.com/explore/locations/148135145889565/a-great-day-farm/recent/"
-                    title="Follow us on Instagram"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <IconInstragram />
-                    <span class="sr-only">Visit us on Instagram</span>
                 </a>
             </div>
         </address>

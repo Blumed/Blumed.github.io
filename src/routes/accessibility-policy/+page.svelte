@@ -2,10 +2,7 @@
     import Hero from "$lib/Hero.svelte";
 </script>
 
-<Hero
-    title="Accessibility Policy"
-    content="At A Great Day Farm, we are committed to fostering an inclusive and accessible environment in every aspect of our work. We recognize the importance of accessibility as a fundamental part of our mission to support disability inclusion."
-/>
+<Hero title="Accessibility Policy" />
 <section class="section less-spacing">
     <div class="container">
         <h2>Our Commitment</h2>

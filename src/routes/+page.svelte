@@ -71,6 +71,7 @@
 			z-index: 2;
 			background-color: white;
 			padding: 34px;
+			border-radius: var(--radius-3);
 		}
 
 		& .container {

@@ -1,0 +1,13 @@
+import{s as x,n as T}from"../chunks/scheduler.zokAAFfB.js";import{S as C,i as H,k as $,s as p,e as d,l as S,f,c as v,m as g,n as y,o as W,g as o,p as L,q as M,d as r,r as k}from"../chunks/index.BfCDx0ga.js";import{H as O}from"../chunks/Hero.BrT2KiEC.js";function E(w){let t,l,s,h=`<div class="container"><h2>Our Commitment</h2> <p>We should put some more text here</p> <ul><li>We strive to ensure that all our systems, operations, events,
+                and communications are as inclusive and accessible as possible.</li> <li>We are actively engaged in assessing and improving the
+                accessibility and usability of our website and digital platforms
+                to better serve all members of our community.</li> <li>We aim to provide accessible facilities, materials, and
+                resources at all events and convenings, ensuring everyone can
+                fully participate.</li></ul></div>`,c,i,b=`<div class="container"><h2>Ongoing Efforts</h2> <p>We should put some more text here</p> <ul><li>Regularly reviewing and updating our website and digital content
+                to comply with current accessibility standards.</li> <li>Soliciting feedback from our community to identify areas for
+                improvement in all levels of our work.</li> <li>Providing training and resources to our team to uphold these
+                standards.</li></ul></div>`,u,n,_=`<div class="container"><h2>Feedback and Support</h2> <p>We welcome and encourage feedback on the accessibility of our
+            website and services. If you encounter any accessibility barriers or
+            have suggestions for improvement, please submit the contact form on
+            our website. We are committed to addressing any issues promptly and
+            continuously enhancing our accessibility efforts.</p></div>`,m;return t=new O({props:{title:"Accessibility Policy"}}),{c(){$(t.$$.fragment),l=p(),s=d("section"),s.innerHTML=h,c=p(),i=d("section"),i.innerHTML=b,u=p(),n=d("section"),n.innerHTML=_,this.h()},l(e){S(t.$$.fragment,e),l=f(e),s=v(e,"SECTION",{class:!0,"data-svelte-h":!0}),g(s)!=="svelte-yn8rfw"&&(s.innerHTML=h),c=f(e),i=v(e,"SECTION",{class:!0,"data-svelte-h":!0}),g(i)!=="svelte-ez51dp"&&(i.innerHTML=b),u=f(e),n=v(e,"SECTION",{class:!0,"data-svelte-h":!0}),g(n)!=="svelte-185bjx7"&&(n.innerHTML=_),this.h()},h(){y(s,"class","section less-spacing"),y(i,"class","section less-spacing"),y(n,"class","section less-spacing")},m(e,a){W(t,e,a),o(e,l,a),o(e,s,a),o(e,c,a),o(e,i,a),o(e,u,a),o(e,n,a),m=!0},p:T,i(e){m||(L(t.$$.fragment,e),m=!0)},o(e){M(t.$$.fragment,e),m=!1},d(e){e&&(r(l),r(s),r(c),r(i),r(u),r(n)),k(t,e)}}}class q extends C{constructor(t){super(),H(this,t,null,E,x,{})}}export{q as component};

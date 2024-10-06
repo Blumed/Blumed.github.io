@@ -3,10 +3,7 @@
     import cofounders from "$lib/assets/cofounders.webp";
 </script>
 
-<Hero
-    title="We're a small organization with a big vision & heart"
-    content="We seek to create an environment that allows our community members with disabilities to show up joyfully. It takes a team of founders, staff, board members and volunteers to make our organization go!"
-/>
+<Hero title="We're a small organization with a big vision & heart" />
 
 <section class="section less-spacing">
     <div class="container">

@@ -2,7 +2,7 @@
     import Hero from "$lib/Hero.svelte";
 </script>
 
-<Hero title="Family First, Community Impact" content="add some text there" />
+<Hero title="Family First, Community Impact" />
 
 <section class="section">
     <div class="container">

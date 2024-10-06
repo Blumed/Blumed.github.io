@@ -251,3 +251,29 @@ dialog {
 	justify-content: center;
 	align-items: center;
 }
+
+.hero {
+	position: relative;
+	z-index: 1;
+	padding-block: 260px;
+	overflow: hidden;
+
+	& :is(h1, p) {
+		position: relative;
+		z-index: 2;
+		background-color: white;
+		padding: 34px;
+		border-radius: var(--radius-3);
+	}
+
+	& .container {
+		position: relative;
+		left: -150px;
+	}
+}
+
+.hero-background-image {
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}

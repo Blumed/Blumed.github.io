@@ -5,13 +5,11 @@
     import Calendly from "$lib/vendors/Calendly.svelte";
     import GoogleMaps from "$lib/vendors/GoogleMaps.svelte";
     import Visit from "$lib/Visit.svelte";
+    import heroImage from "$lib/assets/arial.jpg";
     const address = "5575 115th St. East, Northfield, MN 55057";
 </script>
 
-<Hero
-    title="Visit the Farm"
-    content="A Great Day Farm offers free indoor and outdoor space to individuals with disabilities, their families and small groups. We foster a proactively accessible & inclusive environment that removes barriers so that visitors can show up (joy)fully."
-/>
+<Hero title="Visit the Farm" heroBackground={heroImage} />
 
 <section class="section less-spacing">
     <div class="container">
