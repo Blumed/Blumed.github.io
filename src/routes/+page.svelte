@@ -44,7 +44,7 @@
 					<IconOutdoor width="100%" />
 				</div>
 				<h2>
-					Our accessible grounds is great for a day of relaxation and
+					Our accessible grounds are great for a day of relaxation and
 					adventure
 				</h2>
 			</article>
@@ -69,7 +69,6 @@
 		& :is(h1, p) {
 			position: relative;
 			z-index: 2;
-			/* color: var(--brand); */
 			background-color: white;
 			padding: 34px;
 		}

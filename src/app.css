@@ -75,6 +75,15 @@ p {
 	}
 }
 
+:where(ol, ul) {
+	padding-inline-start: var(--size-5);
+}
+
+:where(li) {
+	font-size: var(--font-size-fluid-0);
+	padding-inline-start: var(--size-1);
+}
+
 .container {
 	width: min(100% - 2rem, 80rem);
 	margin-inline: auto;
