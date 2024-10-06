@@ -81,6 +81,7 @@
 		justify-content: center;
 		align-items: center;
 		transition: bottom 0.3s ease;
+		z-index: 10;
 
 		&.is-visible {
 			bottom: 50px;
