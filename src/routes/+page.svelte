@@ -110,5 +110,10 @@
 		.hero .container {
 			left: 0;
 		}
+
+		.hero h1 {
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
 	}
 </style>

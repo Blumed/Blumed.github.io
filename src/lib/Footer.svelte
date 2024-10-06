@@ -78,8 +78,8 @@
         <div class="links">
             <h3>Quick Links</h3>
             <nav>
-                <a href="/about">About</a>
-                <a href="/our-team">Team</a>
+                <a href="/our-story">Our Story</a>
+                <a href="/our-team">Our Team</a>
                 <a href="/press">Press</a>
                 <a href="/faq">Farm Faq's</a>
             </nav>
@@ -100,6 +100,28 @@
                     recognized by the IRS. Tax ID number: 46-4272037</small
                 >
             </div>
+        </div>
+    </div>
+    <div class="web-creator">
+        <div class="container">
+            <p>
+                Made with love <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    ><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path
+                        d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                    /></svg
+                >
+                by
+                <a
+                    href="https://cullanluther.com"
+                    target="_blank"
+                    rel="noopener noreferrer">Cullan Luther</a
+                >
+            </p>
         </div>
     </div>
 </footer>
@@ -165,7 +187,16 @@
             max-inline-size: fit-content;
         }
     }
-
+    .web-creator {
+        & svg {
+            display: inline;
+            width: 18px;
+            color: var(--brand);
+            position: relative;
+            top: 3px;
+            margin-top: var(--size-2);
+        }
+    }
     @media (max-width: 768px) {
         nav a {
             padding-block: 8px;
