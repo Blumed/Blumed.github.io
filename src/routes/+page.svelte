@@ -1,9 +1,8 @@
 <script>
-	import heroImage from "$lib/assets/home-hero.jpg";
 	import IconGroup from "$lib/assets/icons/IconGroup.svelte";
 	import IconIndoor from "$lib/assets/icons/IconIndoor.svelte";
 	import IconOutdoor from "$lib/assets/icons/IconOutdoor.svelte";
-	import HeroBackground from "$lib/assets/home-hero copy.jpg";
+	import heroBackground from "$lib/assets/home-hero.webp";
 </script>
 
 <svelte:head>
@@ -24,7 +23,7 @@
 	</div>
 	<img
 		class="hero-background-image"
-		src={HeroBackground}
+		src={heroBackground}
 		alt="Happy friends at a great day farm"
 		loading="eager"
 	/>
