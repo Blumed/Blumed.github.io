@@ -84,7 +84,7 @@
 		z-index: 10;
 
 		&.is-visible {
-			bottom: 50px;
+			bottom: 80px;
 		}
 
 		& > * {
