@@ -5,7 +5,7 @@
     import Calendly from "$lib/vendors/Calendly.svelte";
     import GoogleMaps from "$lib/vendors/GoogleMaps.svelte";
     import Visit from "$lib/Visit.svelte";
-    import heroImage from "$lib/assets/arial.jpg";
+    import heroImage from "$lib/assets/arial.webp";
     const address = "5575 115th St. East, Northfield, MN 55057";
 </script>
 

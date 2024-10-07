@@ -1,6 +1,6 @@
 <script>
     import Hero from "$lib/Hero.svelte";
-    import heroBackground from "$lib/assets/old-truck.jpg";
+    import heroBackground from "$lib/assets/old-truck.webp";
     import Visit from "$lib/Visit.svelte";
 </script>
 

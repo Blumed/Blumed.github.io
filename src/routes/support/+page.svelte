@@ -1,7 +1,7 @@
 <script>
     import Donate from "$lib/Donate.svelte";
     import Hero from "$lib/Hero.svelte";
-    import heroBackground from "$lib/assets/playing-music.jpg";
+    import heroBackground from "$lib/assets/playing-music.webp";
 </script>
 
 <Hero
