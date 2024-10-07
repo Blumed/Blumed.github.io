@@ -1,6 +1,5 @@
 <script>
     import Hero from "$lib/Hero.svelte";
-    import ArticleImage from "$lib/assets/about-article.png";
     import heroBackground from "$lib/assets/old-truck.jpg";
     import Visit from "$lib/Visit.svelte";
 </script>

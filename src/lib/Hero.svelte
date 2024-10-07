@@ -1,7 +1,7 @@
 <script lang="ts">
-    export let title: string;
-    export let content: string | undefined;
-    export let heroBackground: string | undefined;
+    export let title: string | null;
+    export let content: string | undefined | null;
+    export let heroBackground: string | undefined | null;
 </script>
 
 <section
