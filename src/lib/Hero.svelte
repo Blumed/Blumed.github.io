@@ -65,12 +65,37 @@
 </style> -->
 
 <style>
-    .hero-card {
-        border-radius: var(--radius-3);
-        border: var(--border-size-2) solid var(--text-1);
-        width: fit-content;
-        max-width: 480px;
+    .hero {
+        position: relative;
+        z-index: 1;
+        padding-block: 14%;
+        /* padding-block: 260px; */
+        /* min-height: 900px; */
+        overflow: hidden;
+
+        & .container {
+            position: relative;
+            width: min(100% - 2rem, 96rem);
+        }
+
+        & .hero-card {
+            position: relative;
+            z-index: 2;
+            background-color: white;
+            padding: 34px;
+            border-radius: var(--radius-3);
+            border: var(--border-size-2) solid var(--text-1);
+            width: fit-content;
+            max-width: 480px;
+        }
     }
+
+    .hero-background-image {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+
     .hero-gradient {
         background-image: linear-gradient(
             90deg,
@@ -93,5 +118,20 @@
             hsl(138deg 79% 88%) 98%,
             hsl(139deg 84% 90%) 100%
         );
+    }
+
+    @media (max-width: 767px) {
+        .hero {
+            padding-block: 200px 0;
+        }
+
+        .hero .container {
+            left: 0;
+        }
+
+        .hero h1 {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
     }
 </style>

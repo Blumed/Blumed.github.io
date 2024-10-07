@@ -90,11 +90,12 @@
 		position: relative;
 		padding: 0;
 		margin: 0;
-		height: 3em;
+		height: 3rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		list-style: none;
+		width: max-content;
 	}
 
 	li {
@@ -172,6 +173,7 @@
 			grid-template-rows: auto auto;
 			height: 100%;
 			padding-inline: 0;
+			width: 100%;
 		}
 	}
 </style>
