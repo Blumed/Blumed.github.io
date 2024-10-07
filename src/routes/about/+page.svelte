@@ -10,7 +10,10 @@
     <meta name="description" content="About this app" />
 </svelte:head>
 
-<Hero title="About Us" {heroBackground} />
+<Hero
+    title="Learn more about our community and bring us together"
+    {heroBackground}
+/>
 
 <section class="section">
     <div class="container">

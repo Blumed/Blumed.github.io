@@ -5,7 +5,7 @@
 </script>
 
 <Hero
-    title="Our work is made possible by community for community."
+    title="Our work is made possible by community for community"
     {heroBackground}
 />
 

@@ -9,7 +9,10 @@
     const address = "5575 115th St. East, Northfield, MN 55057";
 </script>
 
-<Hero title="Visit the Farm" heroBackground={heroImage} />
+<Hero
+    title="Visit the Farm and come take part in the joy"
+    heroBackground={heroImage}
+/>
 
 <section class="section">
     <div class="container">
