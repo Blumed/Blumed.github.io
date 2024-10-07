@@ -1,4 +1,4 @@
-import{s as h,n as m}from"../chunks/scheduler.zokAAFfB.js";import{S as c,i as u,k as p,s as f,e as y,l as g,f as b,c as w,m as v,n as k,o as _,g as r,p as C,q,d as l,r as G}from"../chunks/index.BfCDx0ga.js";import{H as $}from"../chunks/Hero.CEJLjv3v.js";function T(d){let t,o,a,n=`<div class="container"><p>Founded by Greg and Patty Closser of Northfield, A Great Day Farm
+import{s as h,n as m}from"../chunks/scheduler.zokAAFfB.js";import{S as c,i as u,k as p,s as f,e as y,l as g,f as b,c as w,m as v,n as k,o as _,g as r,p as C,q,d as l,r as G}from"../chunks/index.BfCDx0ga.js";import{H as $}from"../chunks/Hero.Bszxxnpr.js";function T(d){let t,o,a,n=`<div class="container"><p>Founded by Greg and Patty Closser of Northfield, A Great Day Farm
             grew organically from their experiences as parents to seven
             biological and adopted kids - two of whom have disabilities with
             unique support needs. As they raised their family, the Clossers

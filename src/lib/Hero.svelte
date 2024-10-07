@@ -67,12 +67,11 @@
 <style>
     .hero-card {
         border-radius: var(--radius-3);
-        border: var(--border-size-1) solid var(--gray-6);
+        border: var(--border-size-2) solid var(--text-1);
         width: fit-content;
         max-width: 480px;
     }
     .hero-gradient {
-        /* background-image: var(--gradient-30); */
         background-image: linear-gradient(
             90deg,
             hsl(130deg 57% 56%) 0%,
