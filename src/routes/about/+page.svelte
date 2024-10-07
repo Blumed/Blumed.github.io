@@ -12,7 +12,7 @@
 
 <Hero title="About Us" {heroBackground} />
 
-<section class="section less-spacing">
+<section class="section">
     <div class="container">
         <h2>
             We offer free recreation and community-building opportunities for

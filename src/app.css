@@ -149,6 +149,10 @@ dialog {
 	}
 }
 
+address {
+	font-style: normal;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	dialog {
 		animation: var(--animation-scale-down) forwards;
@@ -258,17 +262,17 @@ dialog {
 	padding-block: 260px;
 	overflow: hidden;
 
-	& :is(h1, p) {
+	& .container {
+		position: relative;
+		/* left: -150px; */
+	}
+
+	.hero-card {
 		position: relative;
 		z-index: 2;
 		background-color: white;
 		padding: 34px;
 		border-radius: var(--radius-3);
-	}
-
-	& .container {
-		position: relative;
-		left: -150px;
 	}
 }
 
@@ -276,4 +280,19 @@ dialog {
 	position: absolute;
 	top: 0;
 	z-index: 1;
+}
+
+@media (max-width: 767px) {
+	.hero {
+		padding-block: 200px 0;
+	}
+
+	.hero .container {
+		left: 0;
+	}
+
+	.hero h1 {
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
 }

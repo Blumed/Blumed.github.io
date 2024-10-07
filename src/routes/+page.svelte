@@ -3,6 +3,7 @@
 	import IconIndoor from "$lib/assets/icons/IconIndoor.svelte";
 	import IconOutdoor from "$lib/assets/icons/IconOutdoor.svelte";
 	import heroBackground from "$lib/assets/home-hero.webp";
+	import Hero from "$lib/Hero.svelte";
 </script>
 
 <svelte:head>
@@ -10,24 +11,13 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section class="section hero">
-	<div class="container">
-		<h1 class="bottom-bumper">
-			Supporting people with disabilities to show up (joy)fully
-		</h1>
-		<p>
-			A free drop-in recreational facility in Northfield, Minnesota that
+<Hero
+	title="Supporting people with disabilities to show up (joy)fully"
+	content="A free drop-in recreational facility in Northfield, Minnesota that
 			supports people with disabilities, their families and their
-			communities.
-		</p>
-	</div>
-	<img
-		class="hero-background-image"
-		src={heroBackground}
-		alt="Happy friends at a great day farm"
-		loading="eager"
-	/>
-</section>
+			communities."
+	{heroBackground}
+/>
 
 <section class="section">
 	<div class="container">
@@ -60,30 +50,6 @@
 </section>
 
 <style>
-	.hero {
-		position: relative;
-		z-index: 1;
-		padding-block: 260px;
-		overflow: hidden;
-
-		& :is(h1, p) {
-			position: relative;
-			z-index: 2;
-			background-color: white;
-			padding: 34px;
-			border-radius: var(--radius-3);
-		}
-
-		& .container {
-			position: relative;
-			left: -150px;
-		}
-	}
-	.hero-background-image {
-		position: absolute;
-		top: 0;
-		z-index: 1;
-	}
 	.card {
 		padding: var(--size-8) var(--size-5) var(--size-4);
 		& h2 {
@@ -100,19 +66,5 @@
 		border-radius: 50%;
 		padding: 8px;
 		margin-bottom: var(--size-3);
-	}
-
-	@media (max-width: 767px) {
-		.hero {
-			padding-block: 200px 0;
-		}
-		.hero .container {
-			left: 0;
-		}
-
-		.hero h1 {
-			padding-bottom: 0;
-			margin-bottom: 0;
-		}
 	}
 </style>

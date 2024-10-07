@@ -11,7 +11,7 @@
 
 <Hero title="Visit the Farm" heroBackground={heroImage} />
 
-<section class="section less-spacing">
+<section class="section">
     <div class="container">
         <h2>Pre-Register Your Visit</h2>
         <p>

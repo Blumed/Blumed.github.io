@@ -8,10 +8,12 @@
     class={`section hero ${typeof heroBackground === "undefined" ? "hero-gradient" : ""}`}
 >
     <div class="container">
-        <h1 class="bottom-bumper">{title}</h1>
-        {#if typeof content !== "undefined"}
-            <p>{content}</p>
-        {/if}
+        <div class="hero-card">
+            <h1 class="bottom-bumper">{title}</h1>
+            {#if typeof content !== "undefined"}
+                <p>{content}</p>
+            {/if}
+        </div>
     </div>
     {#if typeof heroBackground !== "undefined"}
         <img
@@ -63,6 +65,12 @@
 </style> -->
 
 <style>
+    .hero-card {
+        border-radius: var(--radius-3);
+        border: var(--border-size-1) solid var(--gray-6);
+        width: fit-content;
+        max-width: 480px;
+    }
     .hero-gradient {
         /* background-image: var(--gradient-30); */
         background-image: linear-gradient(
@@ -88,6 +96,3 @@
         );
     }
 </style>
-/* todo
- remove italics
- */

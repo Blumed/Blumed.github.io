@@ -9,7 +9,7 @@
     {heroBackground}
 />
 
-<section class="section less-spacing">
+<section class="section">
     <div class="container">
         <h2>Financial Donations</h2>
         <p>
