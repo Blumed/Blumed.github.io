@@ -4,11 +4,10 @@
 </script>
 
 <div class="copy-text-container">
-    <CopyText text={text}>
+    <CopyText {text}>
         {text}
     </CopyText>
 </div>
-
 
 <style>
     .copy-text-container {

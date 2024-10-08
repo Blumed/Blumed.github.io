@@ -4,17 +4,13 @@
     import Copy from "$lib/partials/Copy.svelte";
     import Calendly from "$lib/vendors/Calendly.svelte";
     import GoogleMaps from "$lib/vendors/GoogleMaps.svelte";
+    import image from "$lib/assets/arial.webp";
     import Visit from "$lib/Visit.svelte";
-    import heroImage from "$lib/assets/arial.webp";
     const address = "5575 115th St. East, Northfield, MN 55057";
 </script>
 
-<Hero
-    title="Visit the Farm and come take part in the joy"
-    heroBackground={heroImage}
-/>
-
-<section class="section">
+<Hero title="Visit the Farm and come take part" {image} />
+<section class="section less-spacing">
     <div class="container">
         <h2>Pre-Register Your Visit</h2>
         <p>
@@ -35,9 +31,7 @@
         <h2>Location & Directions</h2>
         <GoogleMaps />
         <p class="location-address">
-            We are located at <Copy
-                text="5575 115th St E, Northfield, MN 55057"
-            />
+            We are located at <Copy text={address} />
         </p>
     </div>
 </section>
@@ -126,7 +120,7 @@
 
 <Visit
     title="Come have a great day"
-    copy="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatibus aut asperiores eum."
+    copy="Exploring the grounds and choose your own adventure!"
     button_text="Signup For a Visit"
 />
 

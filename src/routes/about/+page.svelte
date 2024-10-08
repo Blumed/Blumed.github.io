@@ -1,6 +1,6 @@
 <script>
     import Hero from "$lib/Hero.svelte";
-    import heroBackground from "$lib/assets/old-truck.webp";
+    import image from "$lib/assets/old-truck.webp";
     import Visit from "$lib/Visit.svelte";
 </script>
 
@@ -9,12 +9,9 @@
     <meta name="description" content="About this app" />
 </svelte:head>
 
-<Hero
-    title="Learn more about our community and bring us together"
-    {heroBackground}
-/>
+<Hero title="Learn more about our community and bring us together" {image} />
 
-<section class="section">
+<section class="section less-spacing">
     <div class="container">
         <h2>
             We offer free recreation and community-building opportunities for

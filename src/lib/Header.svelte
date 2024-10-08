@@ -39,16 +39,17 @@
 					<a href="/support">Support</a>
 				</li>
 				<li class="mobile-hidden">
-					<Dialog name="Donate" id="header-donate-desktop">
-						<Paypal />
-					</Dialog>
-				</li>
-				<li class="mobile-hidden">
 					<Dialog
 						name="Schedule Visit"
 						id="header-calendly-visit-desktop"
+						buttonInvert
 					>
 						<Calendly />
+					</Dialog>
+				</li>
+				<li class="mobile-hidden">
+					<Dialog name="Donate" id="header-donate-desktop">
+						<Paypal />
 					</Dialog>
 				</li>
 			</ul>
@@ -96,6 +97,7 @@
 		align-items: center;
 		list-style: none;
 		width: max-content;
+		gap: 10px;
 	}
 
 	li {

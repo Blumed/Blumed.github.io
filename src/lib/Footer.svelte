@@ -17,7 +17,7 @@
             <div class="footer-group">
                 <h3>Hours</h3>
                 <time datetime="" class="company-hours"
-                    >Everyday from <strong>9am - 5pm</strong>
+                    >Daily from <strong>9am - 5pm</strong>
                     <Help id="footer-hours">
                         <p>
                             <strong>Memorial Day</strong> to
@@ -43,7 +43,7 @@
         <address class="footer-group contact-info">
             <h3>Contact Us</h3>
             <div>
-                Phone: <a href="tel:15076631370" title="click to call"
+                Call or Text: <a href="tel:15076631370" title="click to call"
                     >(507) 663-1370</a
                 >
             </div>
@@ -71,7 +71,7 @@
                 <a href="/our-story">Our Story</a>
                 <a href="/our-team">Our Team</a>
                 <a href="/press">Press</a>
-                <a href="/faq">Farm Faq's</a>
+                <a href="/faq">Farm FAQ</a>
             </nav>
         </div>
     </div>

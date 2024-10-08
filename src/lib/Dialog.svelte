@@ -5,6 +5,7 @@
     export let name: string;
     export let id: string;
     export let type: "link" | null;
+    export let buttonInvert: boolean | null;
     let showDialog = false;
 
     $: if (showDialog) {
@@ -32,6 +33,7 @@
 <button
     type="button"
     class="button button-dialog"
+    class:btn-invert={buttonInvert}
     class:btn-link={type === "link"}
     on:click={() => dialogOpen()}
     aria-label={`Open ${name} Dialog`}>{name}</button
@@ -75,6 +77,11 @@
         margin-left: auto;
         margin-bottom: var(--size-2);
         display: block;
+    }
+    .btn-invert {
+        border: 1px solid currentColor;
+        background-color: transparent;
+        color: var(--brand);
     }
     .btn-link {
         padding: 0;

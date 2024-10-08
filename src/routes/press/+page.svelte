@@ -6,10 +6,7 @@
     import Hero from "$lib/Hero.svelte";
 </script>
 
-<Hero
-    title="Press Example Text"
-    content="Collection of A Great Day Farm articles in the news. Going to add a bit more text here so you can see how a bit more text looks here."
-/>
+<Hero title="A Great Day Farm In the News" />
 
 <section class="section articles">
     <div class="container">
@@ -20,8 +17,8 @@
                 <h3>Northfield News</h3>
                 <time>Sep 30, 2018</time>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nihil, veritatis laborum libero.
+                    Transforming the Closser property into a getaway for people
+                    with disabilities.
                 </p>
                 <a
                     class="btn"
@@ -35,8 +32,8 @@
                 <h3>Pioneer Press</h3>
                 <time>Nov 1, 2018</time>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nihil, veritatis laborum libero.
+                    A Great Day Farm opens to people with disabilities for free,
+                    accessible & calm play.
                 </p>
                 <a
                     class="btn"
@@ -50,8 +47,8 @@
                 <h3>KYMN Radio</h3>
                 <time>Aug 7, 2018</time>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nihil, veritatis laborum libero.
+                    A Great Day Farm Co-Founder Greg Closser joined KYMN to
+                    share the farm's developments.
                 </p>
                 <a
                     class="btn"

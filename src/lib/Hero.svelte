@@ -1,11 +1,12 @@
 <script lang="ts">
     export let title: string | null;
     export let content: string | undefined | null;
-    export let heroBackground: string | undefined | null;
+    export let image: string;
+    export let alt: string;
 </script>
 
 <section
-    class={`section hero ${typeof heroBackground === "undefined" ? "hero-gradient" : ""}`}
+    class={`section hero ${typeof image === "undefined" ? "hero-gradient" : ""}`}
 >
     <div class="container">
         <div class="hero-card">
@@ -15,62 +16,23 @@
             {/if}
         </div>
     </div>
-    {#if typeof heroBackground !== "undefined"}
-        <img
-            class="hero-background-image"
-            src={heroBackground}
-            alt="Happy friends at a great day farm"
-            loading="eager"
-        />
+    {#if typeof image !== "undefined"}
+        <picture class="hero-background-image">
+            <!-- <source
+                media="(mmin-width: 768px)"
+                srcset="elva-480w-close-portrait.jpg"
+            /> -->
+            <img src={image} loading="eager" {alt} />
+        </picture>
     {/if}
 </section>
-
-<!-- <style>
-    .hero {
-        position: relative;
-        z-index: 3;
-
-        & h1 {
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        & p {
-            display: table;
-        }
-
-        & :is(h1, p) {
-            position: relative;
-            z-index: 3;
-            background-color: white;
-            padding: 12px;
-            border-radius: var(--radius-3);
-        }
-        &::after {
-            content: "";
-            background-image: radial-gradient(var(--brand) 10%, transparent 11%),
-                radial-gradient(var(--brand) 10%, transparent 11%);
-            background-position:
-                0px 0px,
-                39px 38px;
-            background-size: 26px 26px;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-        }
-    }
-</style> -->
 
 <style>
     .hero {
         position: relative;
         z-index: 1;
         padding-block: 14%;
-        /* padding-block: 260px; */
-        /* min-height: 900px; */
+        margin-bottom: var(--size-10);
         overflow: hidden;
 
         & .container {
@@ -123,6 +85,7 @@
     @media (max-width: 767px) {
         .hero {
             padding-block: 200px 0;
+            margin-bottom: var(--size-1);
         }
 
         .hero .container {

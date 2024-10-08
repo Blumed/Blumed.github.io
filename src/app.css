@@ -97,6 +97,12 @@ p {
 	}
 }
 
+.btn-invert {
+	border-color: currentColor;
+	background-color: transparent;
+	color: red;
+}
+
 .button {
 	text-shadow: none;
 }

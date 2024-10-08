@@ -25,12 +25,9 @@
             Haley is focused on building infrastructure to amplify A Great Day Farm's
             long-term community impact. She previously worked in higher education,
             corporate and nonprofit environments, all with a common thread of disability
-            and accessibility. This included leading employee accessibility programs
-            at Salesforce, running grants & events at TASH in Washington, DC, and
-            facilitating inclusive higher education environments for students and
-            staff at the University of Minnesota's Disability Resource Center. Her
-            work is driven by her own experiences with disability - she identifies
-            as “deaf-ish” and leverages assistive technology to do her best work.
+            and accessibility. Her work is driven by her own experiences with disability
+            - she identifies as “deaf-ish” and leverages assistive technology to
+            do her best work.
         </p>
         <p>
             <strong>John Weyland - Project Manager</strong> John supports the farm

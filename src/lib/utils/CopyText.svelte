@@ -57,5 +57,6 @@
         margin: 0;
         text-wrap: balance;
         text-align: left;
+        font-weight: normal;
     }
 </style>

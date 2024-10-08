@@ -2,8 +2,9 @@
 	import IconGroup from "$lib/assets/icons/IconGroup.svelte";
 	import IconIndoor from "$lib/assets/icons/IconIndoor.svelte";
 	import IconOutdoor from "$lib/assets/icons/IconOutdoor.svelte";
-	import heroBackground from "$lib/assets/home-hero.webp";
+	import image from "$lib/assets/home-hero.webp";
 	import Hero from "$lib/Hero.svelte";
+	import Visit from "$lib/Visit.svelte";
 </script>
 
 <svelte:head>
@@ -12,11 +13,11 @@
 </svelte:head>
 
 <Hero
-	title="Supporting people with disabilities to show up (joy)fully"
+	title="Fostering joy through accessible recreation"
 	content="A free drop-in recreational facility in Northfield, Minnesota that
 			supports people with disabilities, their families and their
 			communities."
-	{heroBackground}
+	{image}
 />
 
 <section class="section">
@@ -26,28 +27,30 @@
 				<div class="card-icon">
 					<IconIndoor width="100%" />
 				</div>
-				<h2>Indoor recreation center for events, play, and learning</h2>
+				<h2>Indoor recreation center with flexible activities</h2>
 			</article>
 
 			<article class="card">
 				<div class="card-icon">
 					<IconOutdoor width="100%" />
 				</div>
-				<h2>
-					Our accessible grounds are great for a day of relaxation and
-					adventure
-				</h2>
+				<h2>Outdoor interactive spaces for all ages to relax & play</h2>
 			</article>
 
 			<article class="card">
 				<div class="card-icon">
 					<IconGroup width="100%" />
 				</div>
-				<h2>Group activities and fun for the whole family</h2>
+				<h2>Programs & events to build community</h2>
 			</article>
 		</div>
 	</div>
 </section>
+<Visit
+	title="Ready for Your Great Day?"
+	copy="Plan your visit to the farm via our online calendar!"
+	button_text="Sign Up"
+/>
 
 <style>
 	.card {

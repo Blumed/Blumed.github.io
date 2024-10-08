@@ -1,15 +1,12 @@
 <script>
     import Donate from "$lib/Donate.svelte";
     import Hero from "$lib/Hero.svelte";
-    import heroBackground from "$lib/assets/playing-music.webp";
+    import image from "$lib/assets/playing-music.webp";
 </script>
 
-<Hero
-    title="Our work is made possible by community for community"
-    {heroBackground}
-/>
+<Hero title="Support a great day" {image} />
 
-<section class="section">
+<section class="section less-spacing">
     <div class="container">
         <h2>Financial Donations</h2>
         <p>
@@ -36,6 +33,10 @@
             give you a sense of what to think about when working on your plans
             with a trusted advisor.
         </p>
+    </div>
+</section>
+<section class="section less-spacing">
+    <div class="container">
         <div class="cards column-3">
             <article class="card">
                 <h3>Life Insurance</h3>
@@ -73,7 +74,7 @@
         </div>
     </div>
 </section>
-<section>
+<section class="section">
     <div class="container">
         <h2>In-Kind Donations</h2>
         <p class="bottom-bumper">
@@ -100,6 +101,6 @@
 </section>
 <Donate
     title="Support a great day"
-    copy="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatibus aut asperiores eum."
+    copy="Support comes in all forms. Help us add more joy to our community"
     button_text="Donate"
 />
